@@ -518,16 +518,58 @@
 
         </div>
 
-        <a href="https://wa.me/5493410000000"
-           target="_blank"
-           class="btn btn-yellow">
+        <button type="button"
+                class="btn btn-yellow"
+                id="open-packs">
             CONSULTAR PACKS →
-        </a>
+        </button>
 
     </div>
 
 </section>
 
+
+
+<!-- =========================
+     MODAL DE PACKS
+========================= -->
+<div class="packs-modal" id="packs-modal" aria-hidden="true">
+    <div class="packs-modal-backdrop" data-close-packs></div>
+
+    <div class="packs-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="packs-modal-title">
+        <button type="button"
+                class="packs-modal-close"
+                id="close-packs"
+                aria-label="Cerrar">
+            ×
+        </button>
+
+        <div class="packs-modal-header">
+            <div class="yellow-line"></div>
+            <h2 id="packs-modal-title">
+                NUESTROS <span>PACKS</span>
+            </h2>
+            <p>
+                Elegí la opción que más se adapte a vos.
+            </p>
+        </div>
+
+        <div class="packs-filters" id="packs-filters">
+            <button type="button" class="pack-filter active" data-filter="Todos">Todos</button>
+            <button type="button" class="pack-filter" data-filter="Auto">Auto</button>
+            <button type="button" class="pack-filter" data-filter="Moto">Moto</button>
+            <button type="button" class="pack-filter" data-filter="Combos">Combos</button>
+            <button type="button" class="pack-filter" data-filter="Domicilio">Domicilio</button>
+            <button type="button" class="pack-filter" data-filter="Alquiler">Alquiler</button>
+        </div>
+
+        <div class="packs-status" id="packs-status">
+            Cargando packs...
+        </div>
+
+        <div class="packs-grid" id="packs-grid"></div>
+    </div>
+</div>
 
 <!-- =========================
      TESTIMONIOS
@@ -707,39 +749,383 @@
 
 
 <script>
+/* =========================================
+   MENÚ MOBILE
+========================================= */
 
 const menuButton = document.querySelector(".menu-button");
 const navMenu = document.querySelector(".nav-menu");
 
-menuButton.addEventListener("click", () => {
-    navMenu.classList.toggle("open");
+if (menuButton && navMenu) {
+    menuButton.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("open");
+        });
+    });
+}
+
+
+/* =========================================
+   NAVBAR AL HACER SCROLL
+========================================= */
+
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+
+    if (navbar) {
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+    }
 });
 
 
-document.querySelectorAll(".nav-menu a").forEach(link => {
+/* =========================================
+   PACKS DESDE GOOGLE SHEETS
+========================================= */
 
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("open");
+const API_PACKS =
+    "https://script.google.com/macros/s/AKfycbw1k4PB-Phuj8m6nXwMFxQ4ZhYv-3-CQ7WXrEmMO9xdMYFuUT_q3zIZoU8cY36L26rx/exec";
+
+const WHATSAPP =
+    "5493410000000";
+
+let todosLosPacks = [];
+let filtroActual = "Todos";
+
+
+function formatearPrecio(valor) {
+
+    if (valor === undefined || valor === null || valor === "") {
+        return "Consultar";
+    }
+
+    const texto = String(valor).trim();
+
+    if (
+        texto === "-" ||
+        texto.toUpperCase() === "PENDIENTE" ||
+        texto.toUpperCase() === "CONSULTAR"
+    ) {
+        return "Consultar";
+    }
+
+    const numero = Number(
+        texto
+            .replace(/\$/g, "")
+            .replace(/\./g, "")
+            .replace(",", ".")
+    );
+
+    if (Number.isNaN(numero)) {
+        return texto;
+    }
+
+    return "$" + Math.round(numero).toLocaleString("es-AR");
+}
+
+
+function escaparHTML(valor) {
+
+    return String(valor ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+function crearMensajeWhatsApp(pack) {
+
+    const nombre = pack["Nombre"] || "Pack";
+    const categoria = pack["Categoría"] || "";
+    const licencia = pack["Licencia"] || "";
+    const precio = formatearPrecio(pack["Precio"]);
+
+    let mensaje =
+        `Hola RosDrive! Quiero consultar por el ${nombre}`;
+
+    if (categoria) {
+        mensaje += ` (${categoria})`;
+    }
+
+    if (licencia && licencia !== "Consultar") {
+        mensaje += ` - licencia ${licencia}`;
+    }
+
+    mensaje += `. Precio publicado: ${precio}.`;
+
+    return encodeURIComponent(mensaje);
+}
+
+
+function crearTarjetaPack(pack) {
+
+    const nombre = escaparHTML(pack["Nombre"] || "Pack");
+    const categoria = escaparHTML(pack["Categoría"] || "");
+    const subcategoria = escaparHTML(pack["Subcategoría"] || "");
+    const licencia = escaparHTML(pack["Licencia"] || "");
+    const clases = escaparHTML(pack["Cantidad de clases"] || "");
+    const duracion = escaparHTML(pack["Duración por clase"] || "");
+    const descripcion = escaparHTML(pack["Descripción"] || "");
+    const precio = formatearPrecio(pack["Precio"]);
+
+    let detalles = "";
+
+    if (clases && clases !== "0") {
+        detalles += `<span>${clases} clase${clases == "1" ? "" : "s"}</span>`;
+    }
+
+    if (duracion && duracion !== "-" && duracion !== "No aplica") {
+        detalles += `<span>${duracion}</span>`;
+    }
+
+    if (licencia && licencia !== "-" && licencia !== "Consultar") {
+        detalles += `<span>${licencia}</span>`;
+    }
+
+    const whatsapp =
+        `https://wa.me/${WHATSAPP}?text=${crearMensajeWhatsApp(pack)}`;
+
+    return `
+        <article class="pack-card">
+
+            <div class="pack-card-top">
+                <span class="pack-category">
+                    ${categoria}
+                </span>
+
+                ${
+                    licencia && licencia !== "Consultar"
+                    ? `<span class="pack-license">${licencia}</span>`
+                    : ""
+                }
+            </div>
+
+            <h3>${nombre}</h3>
+
+            ${
+                subcategoria
+                ? `<div class="pack-subcategory">${subcategoria}</div>`
+                : ""
+            }
+
+            ${
+                detalles
+                ? `<div class="pack-details">${detalles}</div>`
+                : ""
+            }
+
+            ${
+                descripcion
+                ? `<p class="pack-description">${descripcion}</p>`
+                : ""
+            }
+
+            <div class="pack-card-bottom">
+
+                <div class="pack-price">
+                    ${precio}
+                </div>
+
+                <a
+                    href="${whatsapp}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pack-whatsapp"
+                >
+                    CONSULTAR
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+    `;
+}
+
+
+function mostrarPacks() {
+
+    const grid = document.getElementById("packs-grid");
+    const status = document.getElementById("packs-status");
+
+    if (!grid || !status) {
+        return;
+    }
+
+    let packs = todosLosPacks.filter(pack => {
+
+        const activo =
+            String(pack["Activo"] || "").toUpperCase();
+
+        if (activo && activo !== "SI") {
+            return false;
+        }
+
+        if (filtroActual === "Todos") {
+            return true;
+        }
+
+        return String(pack["Categoría"] || "")
+            .toLowerCase() === filtroActual.toLowerCase();
+    });
+
+    packs.sort((a, b) => {
+        return Number(a["Orden"] || 999) -
+               Number(b["Orden"] || 999);
+    });
+
+    if (!packs.length) {
+
+        status.textContent =
+            "No hay packs disponibles en esta categoría.";
+
+        grid.innerHTML = "";
+
+        return;
+    }
+
+    status.textContent =
+        `${packs.length} opción${packs.length === 1 ? "" : "es"} disponible${packs.length === 1 ? "" : "s"}.`;
+
+    grid.innerHTML =
+        packs.map(crearTarjetaPack).join("");
+}
+
+
+async function cargarPacks() {
+
+    const status = document.getElementById("packs-status");
+
+    try {
+
+        const respuesta = await fetch(API_PACKS, {
+            cache: "no-store"
+        });
+
+        if (!respuesta.ok) {
+            throw new Error("No se pudo conectar con Google Sheets.");
+        }
+
+        const datos = await respuesta.json();
+
+        if (!Array.isArray(datos)) {
+            throw new Error("La API no devolvió una lista de packs.");
+        }
+
+        todosLosPacks = datos;
+
+        mostrarPacks();
+
+    } catch (error) {
+
+        console.error("RosDrive - Error cargando packs:", error);
+
+        if (status) {
+            status.innerHTML =
+                `No pudimos cargar los packs en este momento.<br>
+                 <small>Podés consultarnos directamente por WhatsApp.</small>`;
+        }
+    }
+}
+
+
+/* =========================================
+   MODAL PACKS
+========================================= */
+
+const packsModal = document.getElementById("packs-modal");
+const openPacks = document.getElementById("open-packs");
+const closePacks = document.getElementById("close-packs");
+
+
+function abrirPacks() {
+
+    if (!packsModal) return;
+
+    packsModal.classList.add("is-open");
+    packsModal.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("modal-open");
+
+    cargarPacks();
+}
+
+
+function cerrarPacks() {
+
+    if (!packsModal) return;
+
+    packsModal.classList.remove("is-open");
+    packsModal.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("modal-open");
+}
+
+
+if (openPacks) {
+    openPacks.addEventListener("click", abrirPacks);
+}
+
+
+if (closePacks) {
+    closePacks.addEventListener("click", cerrarPacks);
+}
+
+
+document.querySelectorAll("[data-close-packs]").forEach(element => {
+
+    element.addEventListener("click", cerrarPacks);
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+        cerrarPacks();
+    }
+
+});
+
+
+document.querySelectorAll(".pack-filter").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document
+            .querySelectorAll(".pack-filter")
+            .forEach(item => item.classList.remove("active"));
+
+        button.classList.add("active");
+
+        filtroActual =
+            button.dataset.filter || "Todos";
+
+        mostrarPacks();
+
     });
 
 });
 
 
-window.addEventListener("scroll", () => {
+/* =========================================
+   CARGA INICIAL
+========================================= */
 
-    const navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
+    /*
+     * No cargamos los packs al abrir la página.
+     * Se cargan cuando el usuario toca CONSULTAR PACKS.
+     */
 
 });
-
 </script>
-    
-<script src="packs.js"></script>
     
 </body>
 </html>
