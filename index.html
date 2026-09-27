@@ -5,152 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>RosDrive | Escuela de Conductores en Rosario</title>
+    <meta name="description" content="RosDrive Escuela de Conductores. Clases de auto y moto en Rosario. Aprendé a manejar con confianza y seguridad.">
 
-    <meta name="description"
-        content="RosDrive Escuela de Conductores en Rosario. Clases de auto y moto, preparación para licencia y perfeccionamiento.">
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo-rosdrive.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- ================= HEADER ================= -->
 
-<header class="navbar">
+<header class="header">
+    <div class="container header-inner">
 
-    <div class="nav-container">
-
-        <a href="#inicio" class="brand">
-            <img src="img/logo-rosdrive-horizontal.png" alt="RosDrive">
+        <a href="#inicio" class="logo">
+            <img src="img/logo-rosdrive-horizontal.png" alt="RosDrive Escuela de Conductores">
         </a>
 
-        <nav class="nav-menu">
-
-            <a href="#inicio" class="active">Inicio</a>
+        <nav class="nav">
+            <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
             <a href="#vehiculos">Vehículos</a>
-            <a href="#packs">Packs</a>
             <a href="#como-funciona">Cómo funciona</a>
             <a href="#testimonios">Testimonios</a>
             <a href="#ubicacion">Ubicación</a>
-
         </nav>
 
-        <a class="nav-whatsapp"
-           href="https://wa.me/5493410000000"
+        <a class="header-whatsapp"
+           href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20las%20clases%20de%20manejo%20en%20RosDrive.%20%C2%BFMe%20pueden%20asesorar%3F"
            target="_blank">
-            <span>◉</span>
-            WhatsApp
+            <span>💬</span> WhatsApp
         </a>
 
-        <button class="menu-button" aria-label="Abrir menú">
-            ☰
-        </button>
+        <button class="menu-btn" id="menuBtn">☰</button>
 
     </div>
-
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- ================= HERO ================= -->
 
-<section id="inicio" class="hero">
-
-    <div class="hero-background"></div>
+<section class="hero" id="inicio">
 
     <div class="hero-overlay"></div>
 
-    <div class="hero-container">
+    <div class="container hero-content">
 
-        <div class="hero-content">
+        <div class="hero-text">
 
-            <div class="eyebrow">
+            <span class="eyebrow">
                 ESCUELA DE CONDUCTORES · ROSARIO
-            </div>
+            </span>
 
             <h1>
-                APRENDÉ A MANEJAR
-                <strong>CON CONFIANZA</strong>
+                Aprendé a manejar<br>
+                <span>con confianza.</span>
             </h1>
 
             <p>
-                Escuela de conductores en Rosario.
-                Clases de auto y moto, principiantes,
-                perfeccionamiento y preparación para tu licencia.
+                En RosDrive creemos que aprender a manejar es mucho más que conducir:
+                es ganar libertad, seguridad y confianza en cada kilómetro.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="https://wa.me/5493410000000"
+                <a href="#vehiculos" class="btn btn-primary">
+                    Conocé nuestros vehículos
+                </a>
+
+                <a href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20las%20clases%20de%20manejo%20en%20RosDrive."
                    target="_blank"
-                   class="btn btn-yellow">
-                    💬 ASESORATE POR WHATSAPP
-                    <span>→</span>
-                </a>
-
-                <a href="#vehiculos"
                    class="btn btn-outline">
-                    CONOCÉ NUESTROS VEHÍCULOS
+                    💬 Asesorate por WhatsApp
                 </a>
 
             </div>
 
-            <div class="hero-features">
-
-                <div class="hero-feature">
-                    <span>👥</span>
-                    <div>
-                        <strong>Instructores</strong>
-                        <small>con experiencia</small>
-                    </div>
-                </div>
-
-                <div class="hero-feature">
-                    <span>🚗</span>
-                    <div>
-                        <strong>Vehículos</strong>
-                        <small>habilitados</small>
-                    </div>
-                </div>
-
-                <div class="hero-feature">
-                    <span>✓</span>
-                    <div>
-                        <strong>Clases</strong>
-                        <small>personalizadas</small>
-                    </div>
-                </div>
-
-                <div class="hero-feature">
-                    <span>📍</span>
-                    <div>
-                        <strong>En Rosario</strong>
-                        <small>y alrededores</small>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-car">
-
-            <div class="yellow-stripe stripe-one"></div>
-            <div class="yellow-stripe stripe-two"></div>
-
-            <img src="img/rosdrive_gol_trend_2017_transparente.png"
-                 alt="Volkswagen Gol Trend 2017 RosDrive">
-
         </div>
 
     </div>
@@ -158,84 +93,88 @@
 </section>
 
 
-<!-- =========================
-     SERVICIOS
-========================= -->
+<!-- ================= MARCA ================= -->
 
-<section id="servicios" class="services section-light">
+<section class="brand-strip">
+    <div class="container">
+        <img src="img/logo-rosdrive-horizontal.png" alt="RosDrive">
+    </div>
+</section>
 
-    <div class="section-container">
 
-        <div class="section-title services-title">
+<!-- ================= POR QUÉ ROSDRIVE ================= -->
 
-            <div class="yellow-line"></div>
+<section class="section why-section">
 
-            <h2>
-                NUESTROS<br>
-                <span>SERVICIOS</span>
-            </h2>
+    <div class="container">
+
+        <div class="section-heading center">
+
+            <span class="section-label">ROSDRIVE</span>
+
+            <h2>¿Por qué elegir RosDrive?</h2>
 
             <p>
-                Todo lo que necesitás para aprender
-                a conducir de manera segura y progresiva.
+                Todo lo que necesitás para aprender a conducir
+                de manera segura y progresiva.
             </p>
 
         </div>
 
 
-        <div class="service-grid">
+        <div class="benefits-grid">
 
-            <article class="service-card">
+            <article class="benefit-card">
 
-                <div class="service-icon">🚗</div>
+                <div class="benefit-icon">👨‍🏫</div>
 
-                <h3>CLASES DE AUTO</h3>
+                <h3>Instructores con experiencia</h3>
 
                 <p>
-                    Principiantes, perfeccionamiento
-                    y preparación para licencia.
+                    Profesionales capacitados que te brindan la confianza
+                    que necesitás al volante.
                 </p>
 
             </article>
 
 
-            <article class="service-card">
+            <article class="benefit-card">
 
-                <div class="service-icon">🏍️</div>
+                <div class="benefit-icon">🚗</div>
 
-                <h3>CLASES DE MOTO</h3>
+                <h3>Vehículos preparados</h3>
 
                 <p>
-                    A21, A22 y A3.
-                    Aprendé con motos seguras y habilitadas.
+                    Autos y motos preparados para que aprendas
+                    de forma segura y cómoda.
                 </p>
 
             </article>
 
 
-            <article class="service-card">
+            <article class="benefit-card">
 
-                <div class="service-icon">📋</div>
+                <div class="benefit-icon">🎯</div>
 
-                <h3>CURSO TEÓRICO</h3>
+                <h3>Clases personalizadas</h3>
 
                 <p>
-                    Material actualizado y
-                    simuladores de examen.
+                    Adaptamos cada clase a tu ritmo,
+                    experiencia y objetivos.
                 </p>
 
             </article>
 
 
-            <article class="service-card">
+            <article class="benefit-card">
 
-                <div class="service-icon">👥</div>
+                <div class="benefit-icon">🛡️</div>
 
-                <h3>PACKS COMPLETOS</h3>
+                <h3>Seguridad ante todo</h3>
 
                 <p>
-                    Clases + curso teórico +
-                    gestión de trámites + vehículo.
+                    Aprendé con responsabilidad y en un entorno
+                    pensado para que ganes confianza.
                 </p>
 
             </article>
@@ -247,74 +186,161 @@
 </section>
 
 
-<!-- =========================
-     VEHÍCULOS
-========================= -->
+<!-- ================= SERVICIOS ================= -->
 
-<section id="vehiculos" class="vehicles">
+<section class="section services-section" id="servicios">
 
-    <div class="vehicle-bg"></div>
+    <div class="container">
 
-    <div class="section-container vehicle-container">
+        <div class="section-heading">
 
-        <div class="vehicle-heading">
+            <span class="section-label">NUESTROS SERVICIOS</span>
 
-            <div class="yellow-line"></div>
-
-            <h2>
-                NUESTROS<br>
-                <span>VEHÍCULOS</span>
-            </h2>
+            <h2>Todo para que puedas manejar</h2>
 
             <p>
-                Aprendé con vehículos seguros,
-                modernos y habilitados.
+                Preparación y clases adaptadas a tus necesidades.
             </p>
 
         </div>
 
 
-        <div class="car-showcase">
+        <div class="services-grid">
 
-            <div class="car-image">
+            <article class="service-card">
 
+                <span class="service-number">01</span>
+
+                <div>
+                    <h3>Clases para principiantes</h3>
+
+                    <p>
+                        Perdé el miedo al volante con un método
+                        progresivo y personalizado.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <span class="service-number">02</span>
+
+                <div>
+                    <h3>Obtención de licencia</h3>
+
+                    <p>
+                        Preparación teórica y práctica para que
+                        llegues preparado a tu examen.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <span class="service-number">03</span>
+
+                <div>
+                    <h3>Perfeccionamiento</h3>
+
+                    <p>
+                        Mejorá tu técnica, seguridad y dominio
+                        del vehículo en distintas situaciones.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <span class="service-number">04</span>
+
+                <div>
+                    <h3>Manejo de motos</h3>
+
+                    <p>
+                        Aprendé equilibrio, frenado y maniobras
+                        necesarias para conducir una moto.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FLOTA ================= -->
+
+<section class="section fleet-section" id="vehiculos">
+
+    <div class="container">
+
+        <div class="section-heading center">
+
+            <span class="section-label">NUESTRA FLOTA</span>
+
+            <h2>Aprendé con nuestros vehículos</h2>
+
+            <p>
+                Conocé los vehículos que utilizamos en nuestras clases.
+            </p>
+
+        </div>
+
+
+        <!-- AUTO -->
+
+        <div class="fleet-auto">
+
+            <div class="fleet-image">
                 <img src="img/rosdrive_gol_trend_2017_transparente.png"
-                     alt="Volkswagen Gol Trend 2017">
-
+                     alt="Volkswagen Gol Trend 2017 RosDrive">
             </div>
 
+            <div class="fleet-info">
 
-            <div class="car-info">
+                <span class="fleet-category">CLASES DE AUTO</span>
 
-                <div class="vehicle-category">AUTO</div>
+                <h3>Volkswagen Gol Trend</h3>
 
-                <h3>Volkswagen<br>Gol Trend 2017</h3>
+                <span class="fleet-year">2017 · 3 puertas</span>
 
-                <ul>
+                <p>
+                    Nuestro vehículo de escuela está preparado para
+                    acompañarte durante todo el proceso de aprendizaje.
+                </p>
 
-                    <li>
-                        <span>⚙</span>
-                        Doble comando
-                    </li>
-
-                    <li>
-                        <span>🚗</span>
-                        3 puertas
-                    </li>
-
-                    <li>
-                        <span>✓</span>
-                        Habilitado para examen
-                    </li>
-
-                </ul>
+                <a href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20las%20clases%20de%20auto%20en%20RosDrive."
+                   target="_blank"
+                   class="text-button">
+                    Consultar clases →
+                </a>
 
             </div>
 
         </div>
 
 
-        <div class="moto-grid">
+        <!-- MOTOS -->
+
+        <div class="moto-heading">
+
+            <span class="fleet-category">CLASES DE MOTO</span>
+
+            <h3>Elegí tu categoría</h3>
+
+        </div>
+
+
+        <div class="motos-grid">
 
             <!-- A21 BLITZ -->
 
@@ -322,12 +348,26 @@
 
                 <div class="moto-image">
                     <img src="img/moto_a21_motemel_blitz.png"
-                         alt="Motomel Blitz 110">
+                         alt="Motomel Blitz 110 A21">
                 </div>
 
-                <div class="moto-category">A21</div>
+                <div class="moto-info">
 
-                <h3>Motomel Blitz 110</h3>
+                    <span class="category-badge">A21</span>
+
+                    <h3>Motomel Blitz 110</h3>
+
+                    <p>
+                        Una opción ideal para comenzar a desarrollar
+                        confianza y dominio de la moto.
+                    </p>
+
+                    <a href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20A21."
+                       target="_blank">
+                        Consultar A21 →
+                    </a>
+
+                </div>
 
             </article>
 
@@ -338,12 +378,26 @@
 
                 <div class="moto-image">
                     <img src="img/moto_a21_siam150.png"
-                         alt="Siam 150">
+                         alt="Siam 150 A21">
                 </div>
 
-                <div class="moto-category">A21</div>
+                <div class="moto-info">
 
-                <h3>Siam 150</h3>
+                    <span class="category-badge">A21</span>
+
+                    <h3>Siam 150</h3>
+
+                    <p>
+                        También contamos con Siam 150
+                        con embrague manual.
+                    </p>
+
+                    <a href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20A21."
+                       target="_blank">
+                        Consultar A21 →
+                    </a>
+
+                </div>
 
             </article>
 
@@ -354,12 +408,26 @@
 
                 <div class="moto-image">
                     <img src="img/moto_a22.png"
-                         alt="Hero Hunk 160R">
+                         alt="Hero Hunk 160R A22">
                 </div>
 
-                <div class="moto-category">A22</div>
+                <div class="moto-info">
 
-                <h3>Hero Hunk 160R</h3>
+                    <span class="category-badge">A22</span>
+
+                    <h3>Hero Hunk 160R</h3>
+
+                    <p>
+                        Preparada para las clases correspondientes
+                        a la categoría A22.
+                    </p>
+
+                    <a href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20A22."
+                       target="_blank">
+                        Consultar A22 →
+                    </a>
+
+                </div>
 
             </article>
 
@@ -370,12 +438,26 @@
 
                 <div class="moto-image">
                     <img src="img/rosdrive_hunter_350_a3_transparente.png"
-                         alt="Royal Enfield Hunter 350">
+                         alt="Royal Enfield Hunter 350 A3">
                 </div>
 
-                <div class="moto-category">A3</div>
+                <div class="moto-info">
 
-                <h3>Royal Enfield Hunter 350</h3>
+                    <span class="category-badge">A3</span>
+
+                    <h3>Royal Enfield Hunter 350</h3>
+
+                    <p>
+                        Nuestra Hunter 350 HNTR para las clases
+                        de categoría A3.
+                    </p>
+
+                    <a href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20A3."
+                       target="_blank">
+                        Consultar A3 →
+                    </a>
+
+                </div>
 
             </article>
 
@@ -386,99 +468,63 @@
 </section>
 
 
-<!-- =========================
-     CÓMO FUNCIONA
-========================= -->
+<!-- ================= CÓMO FUNCIONA ================= -->
 
-<section id="como-funciona" class="how section-light">
+<section class="section process-section" id="como-funciona">
 
-    <div class="section-container how-container">
+    <div class="container">
 
-        <div class="how-title">
+        <div class="section-heading center">
 
-            <div class="yellow-line"></div>
+            <span class="section-label">SIMPLE Y RÁPIDO</span>
 
-            <h2>
-                ¿CÓMO<br>
-                FUNCIONA?
-            </h2>
+            <h2>¿Cómo funciona?</h2>
 
         </div>
 
 
-        <div class="steps">
+        <div class="process-grid">
 
-            <div class="step">
+            <article class="process-card">
 
-                <div class="step-number">1</div>
+                <span>01</span>
 
-                <div class="step-icon">💬</div>
-
-                <h3>Contactanos<br>por WhatsApp</h3>
+                <h3>Elegí tu opción</h3>
 
                 <p>
-                    Te asesoramos y resolvemos
-                    todas tus dudas.
+                    Seleccioná las clases que mejor se adapten
+                    a tu nivel y objetivos.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="step-arrow">›</div>
+            <article class="process-card">
 
+                <span>02</span>
 
-            <div class="step">
-
-                <div class="step-number">2</div>
-
-                <div class="step-icon">📅</div>
-
-                <h3>Coordiná<br>tu clase</h3>
+                <h3>Escribinos por WhatsApp</h3>
 
                 <p>
-                    Elegí el día y horario
-                    que mejor te convenga.
+                    Un asesor te responde y confirma la
+                    disponibilidad de las clases.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="step-arrow">›</div>
+            <article class="process-card">
 
+                <span>03</span>
 
-            <div class="step">
-
-                <div class="step-number">3</div>
-
-                <div class="step-icon">🚗</div>
-
-                <h3>Aprendé y ganá<br>confianza</h3>
+                <h3>Coordiná tu primera clase</h3>
 
                 <p>
-                    Clases personalizadas
-                    con instructores capacitados.
+                    Coordinamos día y horario y comenzás
+                    a entrenar con nuestros instructores.
                 </p>
 
-            </div>
-
-
-            <div class="step-arrow">›</div>
-
-
-            <div class="step">
-
-                <div class="step-number">4</div>
-
-                <div class="step-icon">🪪</div>
-
-                <h3>Rendí tu<br>examen</h3>
-
-                <p>
-                    Te preparamos para que
-                    llegues seguro y tranquilo.
-                </p>
-
-            </div>
+            </article>
 
         </div>
 
@@ -487,34 +533,99 @@
 </section>
 
 
-<!-- =========================
-     PACKS / CTA
-========================= -->
+<!-- ================= TESTIMONIOS ================= -->
 
-<section id="packs" class="packs">
+<section class="section testimonials-section" id="testimonios">
 
-    <div class="packs-inner">
+    <div class="container">
 
-        <div>
+        <div class="section-heading center">
 
-            <div class="yellow-line"></div>
+            <span class="section-label">EXPERIENCIAS REALES</span>
 
-            <h2>
-                ENCONTRÁ EL PACK<br>
-                <span>IDEAL PARA VOS</span>
-            </h2>
-
-            <p>
-                Tenemos opciones para principiantes,
-                perfeccionamiento y preparación para licencia.
-            </p>
+            <h2>Lo que dicen nuestros alumnos</h2>
 
         </div>
 
-        <a href="https://wa.me/5493410000000"
+
+        <div class="testimonials-grid">
+
+            <article class="testimonial">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    “Todo excelente, los instructores y la atención
+                    por WhatsApp impecable.”
+                </p>
+
+                <strong>Cristian Corman</strong>
+
+                <span>Licencia Moto</span>
+
+            </article>
+
+
+            <article class="testimonial">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    “Muy buen profesor. Las mejores indicaciones
+                    y buenos tratos. Pude rendir bien con pocas
+                    clases.”
+                </p>
+
+                <strong>Georgina Ingaglio</strong>
+
+                <span>Clase Perfeccionamiento</span>
+
+            </article>
+
+
+            <article class="testimonial">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    “Muchas gracias a los chicos de RosDrive por
+                    acompañarme en esta nueva experiencia.”
+                </p>
+
+                <strong>Candela Roldan</strong>
+
+                <span>Principiante Auto y Moto</span>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta-section">
+
+    <div class="container cta-inner">
+
+        <div>
+            <span class="section-label">¿LISTO PARA EMPEZAR?</span>
+
+            <h2>Tu próxima clase empieza acá.</h2>
+
+            <p>
+                Consultanos por disponibilidad y elegí
+                la opción que mejor se adapte a vos.
+            </p>
+        </div>
+
+        <a href="https://wa.me/5493417205499?text=Hola,%20quiero%20empezar%20mis%20clases%20en%20RosDrive."
            target="_blank"
-           class="btn btn-yellow">
-            CONSULTAR PACKS →
+           class="btn btn-primary">
+            💬 Hablar por WhatsApp
         </a>
 
     </div>
@@ -522,147 +633,47 @@
 </section>
 
 
-<!-- =========================
-     TESTIMONIOS
-========================= -->
+<!-- ================= UBICACIÓN ================= -->
 
-<section id="testimonios" class="testimonials">
+<section class="section location-section" id="ubicacion">
 
-    <div class="section-container testimonials-container">
-
-        <div class="testimonials-heading">
-
-            <div class="yellow-line"></div>
-
-            <h2>
-                LO QUE DICEN<br>
-                NUESTROS ALUMNOS
-            </h2>
-
-            <p>
-                La confianza de nuestros alumnos
-                nos impulsa a seguir mejorando.
-            </p>
-
-        </div>
-
-
-        <div class="testimonial-grid">
-
-            <article class="testimonial">
-
-                <div class="stars">★★★★★</div>
-
-                <p>
-                    “Todo excelente, los instructores
-                    y la atención por WhatsApp impecable.”
-                </p>
-
-                <strong>Cristian C.</strong>
-                <small>Licencia Moto</small>
-
-            </article>
-
-
-            <article class="testimonial">
-
-                <div class="stars">★★★★★</div>
-
-                <p>
-                    “Muy buen profesor. Las mejores
-                    indicaciones y buenos tratos.”
-                </p>
-
-                <strong>Georgina I.</strong>
-                <small>Clase Perfeccionamiento</small>
-
-            </article>
-
-
-            <article class="testimonial">
-
-                <div class="stars">★★★★★</div>
-
-                <p>
-                    “Muchas gracias a los chicos de
-                    RosDrive por acompañarme en esta experiencia.”
-                </p>
-
-                <strong>Candela R.</strong>
-                <small>Principiante Auto y Moto</small>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     UBICACIÓN
-========================= -->
-
-<section id="ubicacion" class="location section-light">
-
-    <div class="section-container location-container">
+    <div class="container location-grid">
 
         <div class="location-info">
 
-            <div class="yellow-line"></div>
+            <span class="section-label">ENCONTRANOS</span>
 
-            <h2>UBICACIÓN</h2>
+            <h2>Estamos en Rosario</h2>
 
             <p>
-                Encontranos en el corazón de Rosario.
+                Nuestra escuela se encuentra ubicada en
+                Córdoba 844/50, Local 6.
             </p>
 
             <div class="address">
 
-                <strong>📍 Córdoba 844/50, Local 6</strong>
+                <strong>📍 Ubicación</strong>
 
                 <span>
-                    Galería Santa Fe<br>
-                    Rosario, Santa Fe
+                    Córdoba 844/50, Local 6<br>
+                    Rosario, Santa Fe, Argentina
                 </span>
 
             </div>
 
-            <a href="https://www.google.com/maps/search/?api=1&query=Córdoba+844+Rosario+Santa+Fe"
+            <a href="https://www.google.com/maps/search/?api=1&query=Cordoba+844+Rosario+Santa+Fe"
                target="_blank"
-               class="btn btn-yellow">
-                📍 VER EN GOOGLE MAPS →
+               class="text-button">
+                Ver ubicación →
             </a>
 
         </div>
 
 
-        <div class="map">
+        <div class="location-visual">
 
-            <iframe
-                src="https://www.google.com/maps?q=Córdoba%20844,%20Rosario,%20Santa%20Fe&output=embed"
-                loading="lazy"
-                allowfullscreen>
-            </iframe>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <img src="img/logo-rosdrive-horizontal.png"
-                 alt="RosDrive">
-
-            <div class="contact-line">
-                <span>◉</span>
-                <strong>341 000 0000</strong>
-            </div>
-
-            <div class="contact-line">
-                <span>◎</span>
-                <strong>@rosdrive.escuela</strong>
-            </div>
+            <img src="img/rosdrive_monumento_transparente.png"
+                 alt="RosDrive Rosario">
 
         </div>
 
@@ -671,63 +682,67 @@
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
-    <div class="footer-inner">
+    <div class="container footer-inner">
 
-        <img src="img/logo-rosdrive-horizontal.png"
-             alt="RosDrive">
+        <div class="footer-brand">
+
+            <img src="img/logo-rosdrive-horizontal.png"
+                 alt="RosDrive">
+
+            <p>Escuela de Conductores</p>
+
+        </div>
+
+
+        <div class="footer-address">
+
+            <strong>Córdoba 844/50 · Local 6</strong>
+
+            <span>Rosario, Santa Fe, Argentina</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
 
         <p>
-            Escuela de Conductores
-        </p>
-
-        <span>
-            Córdoba 844/50 · Local 6 · Rosario, Santa Fe
-        </span>
-
-        <div class="footer-copy">
             © 2026 RosDrive Escuela de Conductores
-        </div>
+        </p>
 
     </div>
 
 </footer>
 
 
+<!-- ================= WHATSAPP FLOAT ================= -->
+
+<a href="https://wa.me/5493417205499?text=Hola,%20quiero%20consultar%20por%20las%20clases%20de%20manejo%20en%20RosDrive."
+   target="_blank"
+   class="whatsapp-float"
+   aria-label="WhatsApp">
+    💬
+</a>
+
+
 <script>
 
-const menuButton = document.querySelector(".menu-button");
-const navMenu = document.querySelector(".nav-menu");
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.querySelector(".nav");
 
-menuButton.addEventListener("click", () => {
-    navMenu.classList.toggle("open");
+menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("active");
 });
 
-
-document.querySelectorAll(".nav-menu a").forEach(link => {
-
+document.querySelectorAll(".nav a").forEach(link => {
     link.addEventListener("click", () => {
-        navMenu.classList.remove("open");
+        nav.classList.remove("active");
     });
-
-});
-
-
-window.addEventListener("scroll", () => {
-
-    const navbar = document.querySelector(".navbar");
-
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-
 });
 
 </script>
