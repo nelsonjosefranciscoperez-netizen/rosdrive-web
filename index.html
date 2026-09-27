@@ -495,81 +495,293 @@
 
 
 <!-- =========================
-     PACKS / CTA
+     PACKS
 ========================= -->
+<section id="packs" class="packs-section">
 
-<section id="packs" class="packs">
+    <div class="section-container">
 
-    <div class="packs-inner">
+        <div class="packs-section-heading">
+            <div>
+                <div class="yellow-line"></div>
 
-        <div>
+                <h2>
+                    ELEGÍ TU <span>PACK</span>
+                </h2>
 
-            <div class="yellow-line"></div>
+                <p>
+                    Elegí auto o moto y encontrá la opción que mejor se adapte a vos.
+                    Los precios se actualizan automáticamente desde RosDrive.
+                </p>
+            </div>
+        </div>
 
-            <h2>
-                ENCONTRÁ EL PACK<br>
-                <span>IDEAL PARA VOS</span>
-            </h2>
+        <!-- SELECTOR PRINCIPAL -->
+        <div class="packs-main-tabs" role="tablist">
 
-            <p>
-                Tenemos opciones para principiantes,
-                perfeccionamiento y preparación para licencia.
-            </p>
+            <button
+                type="button"
+                class="packs-main-tab active"
+                data-pack-type="auto"
+                role="tab"
+                aria-selected="true">
+
+                <span class="packs-tab-icon">🚗</span>
+
+                <span>
+                    <strong>AUTO</strong>
+                    <small>Licencia B1</small>
+                </span>
+
+            </button>
+
+            <button
+                type="button"
+                class="packs-main-tab"
+                data-pack-type="moto"
+                role="tab"
+                aria-selected="false">
+
+                <span class="packs-tab-icon">🏍️</span>
+
+                <span>
+                    <strong>MOTO</strong>
+                    <small>A21 · A22 · A3</small>
+                </span>
+
+            </button>
 
         </div>
 
-        <button type="button"
-                class="btn btn-yellow"
-                id="open-packs">
-            CONSULTAR PACKS →
-        </button>
+
+        <!-- =========================
+             AUTO
+        ========================= -->
+        <div class="pack-vehicle-panel active" id="pack-panel-auto">
+
+            <div class="pack-vehicle-showcase">
+
+                <div class="pack-vehicle-image">
+
+                    <div class="pack-vehicle-glow"></div>
+
+                    <img
+                        src="img/rosdrive_gol_trend_2017_transparente.png"
+                        alt="Volkswagen Gol Trend 2017 RosDrive">
+
+                </div>
+
+                <div class="pack-vehicle-info">
+
+                    <span class="pack-vehicle-label">
+                        VEHÍCULO ESCUELA
+                    </span>
+
+                    <h3>
+                        VOLKSWAGEN<br>
+                        <span>GOL TREND 2017</span>
+                    </h3>
+
+                    <p>
+                        Nuestro vehículo para clases y preparación
+                        para licencia B1.
+                    </p>
+
+                    <div class="pack-vehicle-features">
+
+                        <span>✓ Doble comando</span>
+                        <span>✓ 3 puertas</span>
+                        <span>✓ Habilitado para examen</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pack-category-tabs" data-category-group="auto">
+
+                <button
+                    type="button"
+                    class="pack-category-tab active"
+                    data-pack-filter="Auto">
+                    TODOS
+                </button>
+
+                <button
+                    type="button"
+                    class="pack-category-tab"
+                    data-pack-filter="Domicilio">
+                    DOMICILIO
+                </button>
+
+                <button
+                    type="button"
+                    class="pack-category-tab"
+                    data-pack-filter="Combos">
+                    COMBOS
+                </button>
+
+                <button
+                    type="button"
+                    class="pack-category-tab"
+                    data-pack-filter="Alquiler">
+                    ALQUILER
+                </button>
+
+            </div>
+
+            <div class="packs-status" id="packs-status-auto">
+                Cargando packs...
+            </div>
+
+            <div class="packs-grid visual-packs-grid" id="packs-grid-auto"></div>
+
+        </div>
+
+
+        <!-- =========================
+             MOTO
+        ========================= -->
+        <div class="pack-vehicle-panel" id="pack-panel-moto">
+
+            <div class="pack-moto-showcase">
+
+                <div class="pack-moto-heading">
+
+                    <span class="pack-vehicle-label">
+                        VEHÍCULOS ESCUELA
+                    </span>
+
+                    <h3>
+                        ELEGÍ TU <span>CATEGORÍA</span>
+                    </h3>
+
+                    <p>
+                        Trabajamos con motos adaptadas a cada categoría
+                        de licencia.
+                    </p>
+
+                </div>
+
+                <div class="pack-moto-vehicles">
+
+                    <article class="pack-moto-vehicle">
+
+                        <div class="pack-moto-vehicle-image">
+                            <img
+                                src="img/moto_a21_motemel_blitz.png"
+                                alt="Motomel Blitz 110">
+                        </div>
+
+                        <span>A21</span>
+
+                        <h4>Motomel Blitz 110</h4>
+
+                    </article>
+
+
+                    <article class="pack-moto-vehicle">
+
+                        <div class="pack-moto-vehicle-image">
+                            <img
+                                src="img/moto_a21_siam150.png"
+                                alt="Siam 150">
+                        </div>
+
+                        <span>A21</span>
+
+                        <h4>Siam 150</h4>
+
+                        <small>Embrague manual</small>
+
+                    </article>
+
+
+                    <article class="pack-moto-vehicle">
+
+                        <div class="pack-moto-vehicle-image">
+                            <img
+                                src="img/moto_a22.png"
+                                alt="Hero Hunk 160R">
+                        </div>
+
+                        <span>A22</span>
+
+                        <h4>Hero Hunk 160R</h4>
+
+                    </article>
+
+
+                    <article class="pack-moto-vehicle">
+
+                        <div class="pack-moto-vehicle-image">
+                            <img
+                                src="img/rosdrive_hunter_350_a3_transparente.png"
+                                alt="Royal Enfield Hunter 350">
+                        </div>
+
+                        <span>A3</span>
+
+                        <h4>Royal Enfield Hunter 350</h4>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <div class="pack-category-tabs" data-category-group="moto">
+
+                <button
+                    type="button"
+                    class="pack-category-tab active"
+                    data-pack-filter="Moto">
+                    TODOS
+                </button>
+
+                <button
+                    type="button"
+                    class="pack-category-tab"
+                    data-pack-filter="A21">
+                    A21
+                </button>
+
+                <button
+                    type="button"
+                    class="pack-category-tab"
+                    data-pack-filter="A22">
+                    A22
+                </button>
+
+                <button
+                    type="button"
+                    class="pack-category-tab"
+                    data-pack-filter="A3">
+                    A3
+                </button>
+
+                <button
+                    type="button"
+                    class="pack-category-tab"
+                    data-pack-filter="Alquiler">
+                    ALQUILER
+                </button>
+
+            </div>
+
+            <div class="packs-status" id="packs-status-moto">
+                Cargando packs...
+            </div>
+
+            <div class="packs-grid visual-packs-grid" id="packs-grid-moto"></div>
+
+        </div>
 
     </div>
 
 </section>
 
-
-
-<!-- =========================
-     MODAL DE PACKS
-========================= -->
-<div class="packs-modal" id="packs-modal" aria-hidden="true">
-    <div class="packs-modal-backdrop" data-close-packs></div>
-
-    <div class="packs-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="packs-modal-title">
-        <button type="button"
-                class="packs-modal-close"
-                id="close-packs"
-                aria-label="Cerrar">
-            ×
-        </button>
-
-        <div class="packs-modal-header">
-            <div class="yellow-line"></div>
-            <h2 id="packs-modal-title">
-                NUESTROS <span>PACKS</span>
-            </h2>
-            <p>
-                Elegí la opción que más se adapte a vos.
-            </p>
-        </div>
-
-        <div class="packs-filters" id="packs-filters">
-            <button type="button" class="pack-filter active" data-filter="Todos">Todos</button>
-            <button type="button" class="pack-filter" data-filter="Auto">Auto</button>
-            <button type="button" class="pack-filter" data-filter="Moto">Moto</button>
-            <button type="button" class="pack-filter" data-filter="Combos">Combos</button>
-            <button type="button" class="pack-filter" data-filter="Domicilio">Domicilio</button>
-            <button type="button" class="pack-filter" data-filter="Alquiler">Alquiler</button>
-        </div>
-
-        <div class="packs-status" id="packs-status">
-            Cargando packs...
-        </div>
-
-        <div class="packs-grid" id="packs-grid"></div>
-    </div>
-</div>
 
 <!-- =========================
      TESTIMONIOS
@@ -789,11 +1001,12 @@ window.addEventListener("scroll", () => {
 const API_PACKS =
     "https://script.google.com/macros/s/AKfycbw1k4PB-Phuj8m6nXwMFxQ4ZhYv-3-CQ7WXrEmMO9xdMYFuUT_q3zIZoU8cY36L26rx/exec";
 
-const WHATSAPP =
-    "5493410000000";
+const WHATSAPP = "5493410000000";
 
 let todosLosPacks = [];
-let filtroActual = "Todos";
+let packTypeActual = "auto";
+let packFiltroAuto = "Auto";
+let packFiltroMoto = "Moto";
 
 
 function formatearPrecio(valor) {
@@ -891,7 +1104,7 @@ function crearTarjetaPack(pack) {
         `https://wa.me/${WHATSAPP}?text=${crearMensajeWhatsApp(pack)}`;
 
     return `
-        <article class="pack-card">
+        <article class="pack-card visual-pack-card">
 
             <div class="pack-card-top">
                 <span class="pack-category">
@@ -935,10 +1148,8 @@ function crearTarjetaPack(pack) {
                     href="${whatsapp}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="pack-whatsapp"
-                >
-                    CONSULTAR
-                    <span>→</span>
+                    class="pack-whatsapp">
+                    CONSULTAR <span>→</span>
                 </a>
 
             </div>
@@ -948,30 +1159,103 @@ function crearTarjetaPack(pack) {
 }
 
 
-function mostrarPacks() {
+function packEstaActivo(pack) {
 
-    const grid = document.getElementById("packs-grid");
-    const status = document.getElementById("packs-status");
+    const activo =
+        String(pack["Activo"] || "").trim().toUpperCase();
 
-    if (!grid || !status) {
-        return;
-    }
+    return !activo || activo === "SI";
+}
+
+
+function packEsAuto(pack) {
+
+    const categoria =
+        String(pack["Categoría"] || "").toLowerCase();
+
+    const licencia =
+        String(pack["Licencia"] || "").toLowerCase();
+
+    const nombre =
+        String(pack["Nombre"] || "").toLowerCase();
+
+    return (
+        categoria.includes("auto") ||
+        categoria.includes("combo") ||
+        categoria.includes("domicilio") ||
+        categoria.includes("alquiler") ||
+        licencia.includes("b1") ||
+        nombre.includes("auto") ||
+        nombre.includes("b1")
+    );
+}
+
+
+function packEsMoto(pack) {
+
+    const categoria =
+        String(pack["Categoría"] || "").toLowerCase();
+
+    const licencia =
+        String(pack["Licencia"] || "").toLowerCase();
+
+    const nombre =
+        String(pack["Nombre"] || "").toLowerCase();
+
+    return (
+        categoria.includes("moto") ||
+        categoria.includes("alquiler") ||
+        licencia.includes("a21") ||
+        licencia.includes("a22") ||
+        licencia.includes("a3") ||
+        nombre.includes("moto") ||
+        nombre.includes("a21") ||
+        nombre.includes("a22") ||
+        nombre.includes("a3")
+    );
+}
+
+
+function obtenerPacksPara(tipo, filtro) {
 
     let packs = todosLosPacks.filter(pack => {
 
-        const activo =
-            String(pack["Activo"] || "").toUpperCase();
-
-        if (activo && activo !== "SI") {
+        if (!packEstaActivo(pack)) {
             return false;
         }
 
-        if (filtroActual === "Todos") {
+        if (tipo === "auto") {
+            if (!packEsAuto(pack)) {
+                return false;
+            }
+        }
+
+        if (tipo === "moto") {
+            if (!packEsMoto(pack)) {
+                return false;
+            }
+        }
+
+        if (filtro === "Auto" || filtro === "Moto") {
             return true;
         }
 
-        return String(pack["Categoría"] || "")
-            .toLowerCase() === filtroActual.toLowerCase();
+        const categoria =
+            String(pack["Categoría"] || "").toLowerCase();
+
+        const licencia =
+            String(pack["Licencia"] || "").toLowerCase();
+
+        const nombre =
+            String(pack["Nombre"] || "").toLowerCase();
+
+        const filtroLower = filtro.toLowerCase();
+
+        return (
+            categoria.includes(filtroLower) ||
+            licencia.includes(filtroLower) ||
+            nombre.includes(filtroLower)
+        );
     });
 
     packs.sort((a, b) => {
@@ -979,27 +1263,47 @@ function mostrarPacks() {
                Number(b["Orden"] || 999);
     });
 
-    if (!packs.length) {
+    return packs;
+}
 
-        status.textContent =
-            "No hay packs disponibles en esta categoría.";
 
-        grid.innerHTML = "";
+function mostrarPacks() {
 
-        return;
+    const autoGrid = document.getElementById("packs-grid-auto");
+    const motoGrid = document.getElementById("packs-grid-moto");
+
+    const autoStatus = document.getElementById("packs-status-auto");
+    const motoStatus = document.getElementById("packs-status-moto");
+
+    const autoPacks =
+        obtenerPacksPara("auto", packFiltroAuto);
+
+    const motoPacks =
+        obtenerPacksPara("moto", packFiltroMoto);
+
+    if (autoGrid) {
+        autoGrid.innerHTML =
+            autoPacks.map(crearTarjetaPack).join("");
+
+        autoStatus.textContent =
+            autoPacks.length
+                ? `${autoPacks.length} opción${autoPacks.length === 1 ? "" : "es"} disponible${autoPacks.length === 1 ? "" : "s"}.`
+                : "No hay packs disponibles en esta categoría.";
     }
 
-    status.textContent =
-        `${packs.length} opción${packs.length === 1 ? "" : "es"} disponible${packs.length === 1 ? "" : "s"}.`;
+    if (motoGrid) {
+        motoGrid.innerHTML =
+            motoPacks.map(crearTarjetaPack).join("");
 
-    grid.innerHTML =
-        packs.map(crearTarjetaPack).join("");
+        motoStatus.textContent =
+            motoPacks.length
+                ? `${motoPacks.length} opción${motoPacks.length === 1 ? "" : "es"} disponible${motoPacks.length === 1 ? "" : "s"}.`
+                : "No hay packs disponibles en esta categoría.";
+    }
 }
 
 
 async function cargarPacks() {
-
-    const status = document.getElementById("packs-status");
 
     try {
 
@@ -1014,7 +1318,7 @@ async function cargarPacks() {
         const datos = await respuesta.json();
 
         if (!Array.isArray(datos)) {
-            throw new Error("La API no devolvió una lista de packs.");
+            throw new Error("La API no devolvió una lista.");
         }
 
         todosLosPacks = datos;
@@ -1025,86 +1329,91 @@ async function cargarPacks() {
 
         console.error("RosDrive - Error cargando packs:", error);
 
-        if (status) {
-            status.innerHTML =
-                `No pudimos cargar los packs en este momento.<br>
-                 <small>Podés consultarnos directamente por WhatsApp.</small>`;
-        }
+        const mensaje =
+            "No pudimos cargar los packs en este momento. Podés consultarnos por WhatsApp.";
+
+        const autoStatus =
+            document.getElementById("packs-status-auto");
+
+        const motoStatus =
+            document.getElementById("packs-status-moto");
+
+        if (autoStatus) autoStatus.textContent = mensaje;
+        if (motoStatus) motoStatus.textContent = mensaje;
     }
 }
 
 
 /* =========================================
-   MODAL PACKS
+   CAMBIO AUTO / MOTO
 ========================================= */
 
-const packsModal = document.getElementById("packs-modal");
-const openPacks = document.getElementById("open-packs");
-const closePacks = document.getElementById("close-packs");
+document.querySelectorAll(".packs-main-tab").forEach(tab => {
 
-
-function abrirPacks() {
-
-    if (!packsModal) return;
-
-    packsModal.classList.add("is-open");
-    packsModal.setAttribute("aria-hidden", "false");
-
-    document.body.classList.add("modal-open");
-
-    cargarPacks();
-}
-
-
-function cerrarPacks() {
-
-    if (!packsModal) return;
-
-    packsModal.classList.remove("is-open");
-    packsModal.setAttribute("aria-hidden", "true");
-
-    document.body.classList.remove("modal-open");
-}
-
-
-if (openPacks) {
-    openPacks.addEventListener("click", abrirPacks);
-}
-
-
-if (closePacks) {
-    closePacks.addEventListener("click", cerrarPacks);
-}
-
-
-document.querySelectorAll("[data-close-packs]").forEach(element => {
-
-    element.addEventListener("click", cerrarPacks);
-
-});
-
-
-document.addEventListener("keydown", event => {
-
-    if (event.key === "Escape") {
-        cerrarPacks();
-    }
-
-});
-
-
-document.querySelectorAll(".pack-filter").forEach(button => {
-
-    button.addEventListener("click", () => {
+    tab.addEventListener("click", () => {
 
         document
-            .querySelectorAll(".pack-filter")
-            .forEach(item => item.classList.remove("active"));
+            .querySelectorAll(".packs-main-tab")
+            .forEach(item => {
+                item.classList.remove("active");
+                item.setAttribute("aria-selected", "false");
+            });
 
-        button.classList.add("active");
+        document
+            .querySelectorAll(".pack-vehicle-panel")
+            .forEach(panel => {
+                panel.classList.remove("active");
+            });
 
-        filtroActual =
-            button.dataset.filter || "Todos";
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+
+        packTypeActual =
+            tab.dataset.packType || "auto";
+
+        const panel =
+            document.getElementById(
+                `pack-panel-${packTypeActual}`
+            );
+
+        if (panel) {
+            panel.classList.add("active");
+        }
+
+    });
+
+});
+
+
+/* =========================================
+   FILTROS
+========================================= */
+
+document.querySelectorAll(".pack-category-tab").forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        const grupo =
+            tab.closest(".pack-category-tabs");
+
+        grupo
+            .querySelectorAll(".pack-category-tab")
+            .forEach(item => {
+                item.classList.remove("active");
+            });
+
+        tab.classList.add("active");
+
+        const filtro =
+            tab.dataset.packFilter || "Auto";
+
+        if (grupo.dataset.categoryGroup === "auto") {
+            packFiltroAuto = filtro;
+        }
+
+        if (grupo.dataset.categoryGroup === "moto") {
+            packFiltroMoto = filtro;
+        }
 
         mostrarPacks();
 
@@ -1118,13 +1427,9 @@ document.querySelectorAll(".pack-filter").forEach(button => {
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /*
-     * No cargamos los packs al abrir la página.
-     * Se cargan cuando el usuario toca CONSULTAR PACKS.
-     */
-
+    cargarPacks();
 });
+
 </script>
     
 </body>
