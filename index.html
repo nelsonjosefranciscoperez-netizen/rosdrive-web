@@ -1,24 +1,618 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RosDrive | Escuela de Conducción</title>
+    <title>RosDrive | Escuela de Conductores en Rosario</title>
 
     <meta
         name="description"
-        content="RosDrive - Escuela de conducción en Rosario. Clases de auto y moto."
+        content="RosDrive Escuela de Conductores en Rosario. Clases de auto y moto, principiantes, perfeccionamiento y preparación para licencia."
     >
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>RosDrive</h1>
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-    <p>Escuela de conducción</p>
+    <header class="header">
 
-    <p>🚗 Auto | 🏍️ Moto</p>
+        <div class="container header-content">
+
+            <a href="#" class="logo">
+                ROS<span>DRIVE</span>
+            </a>
+
+            <nav class="nav">
+
+                <a href="#inicio">Inicio</a>
+
+                <a href="#servicios">Servicios</a>
+
+                <a href="#como-funciona">Cómo funciona</a>
+
+                <a href="#testimonios">Testimonios</a>
+
+                <a href="#ubicacion">Ubicación</a>
+
+                <a
+                    href="https://wa.me/5493410000000"
+                    target="_blank"
+                    class="nav-whatsapp"
+                >
+                    WhatsApp
+                </a>
+
+            </nav>
+
+            <button class="menu-button" aria-label="Abrir menú">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section id="inicio" class="hero">
+
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-content">
+
+                <p class="hero-small">
+                    ESCUELA DE CONDUCTORES · ROSARIO
+                </p>
+
+                <h1>
+                    Aprendé a manejar
+                    <span>con confianza.</span>
+                </h1>
+
+                <p class="hero-text">
+                    En RosDrive creemos que aprender a manejar es mucho más
+                    que conducir: es ganar libertad, seguridad y confianza
+                    en cada kilómetro.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#servicios" class="button button-primary">
+                        Conocé RosDrive
+                    </a>
+
+                    <a
+                        href="https://wa.me/5493410000000"
+                        target="_blank"
+                        class="button button-secondary"
+                    >
+                        💬 Asesorate por WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             POR QUÉ ROSDRIVE
+        ========================== -->
+
+        <section class="why-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        ROSDRIVE
+                    </p>
+
+                    <h2>
+                        ¿Por qué elegir RosDrive?
+                    </h2>
+
+                    <p>
+                        Todo lo que necesitás para aprender a conducir
+                        de manera segura y progresiva.
+                    </p>
+
+                </div>
+
+
+                <div class="benefits-grid">
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            👨‍🏫
+                        </div>
+
+                        <h3>
+                            Instructores con experiencia
+                        </h3>
+
+                        <p>
+                            Profesionales capacitados que te brindan
+                            la confianza que necesitás al volante.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            🚗
+                        </div>
+
+                        <h3>
+                            Vehículos modernos
+                        </h3>
+
+                        <p>
+                            Autos y motos preparados para que aprendas
+                            de forma segura y cómoda.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            🎯
+                        </div>
+
+                        <h3>
+                            Clases personalizadas
+                        </h3>
+
+                        <p>
+                            Adaptamos cada clase a tu ritmo, experiencia
+                            y objetivos.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+                            🛡️
+                        </div>
+
+                        <h3>
+                            Seguridad ante todo
+                        </h3>
+
+                        <p>
+                            Aprendé con responsabilidad y en un entorno
+                            pensado para que ganes confianza.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SERVICIOS
+        ========================== -->
+
+        <section id="servicios" class="services-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        NUESTROS SERVICIOS
+                    </p>
+
+                    <h2>
+                        Todo para que puedas manejar
+                    </h2>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Clases para principiantes
+                        </h3>
+
+                        <p>
+                            Perdé el miedo al volante con un método
+                            progresivo y personalizado.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Obtención de licencia
+                        </h3>
+
+                        <p>
+                            Preparación teórica y práctica para que
+                            llegues preparado a tu examen.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Perfeccionamiento
+                        </h3>
+
+                        <p>
+                            Mejorá tu técnica, seguridad y dominio
+                            del vehículo en distintas situaciones.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Manejo de motos
+                        </h3>
+
+                        <p>
+                            Aprendé equilibrio, frenado y maniobras
+                            necesarias para conducir una moto.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CÓMO FUNCIONA
+        ========================== -->
+
+        <section id="como-funciona" class="steps-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        SIMPLE Y RÁPIDO
+                    </p>
+
+                    <h2>
+                        ¿Cómo funciona?
+                    </h2>
+
+                </div>
+
+
+                <div class="steps-grid">
+
+                    <article class="step">
+
+                        <span>01</span>
+
+                        <h3>
+                            Elegí tu pack
+                        </h3>
+
+                        <p>
+                            Seleccioná la opción que mejor se adapte
+                            a tu nivel y objetivos.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <span>02</span>
+
+                        <h3>
+                            Escribinos por WhatsApp
+                        </h3>
+
+                        <p>
+                            Un asesor te responde y confirma la
+                            disponibilidad de las clases.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <span>03</span>
+
+                        <h3>
+                            Coordiná tu primera clase
+                        </h3>
+
+                        <p>
+                            Coordinamos día y horario y comenzás
+                            a entrenar con nuestros instructores.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TESTIMONIOS
+        ========================== -->
+
+        <section id="testimonios" class="testimonials-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        EXPERIENCIAS REALES
+                    </p>
+
+                    <h2>
+                        Lo que dicen nuestros alumnos
+                    </h2>
+
+                </div>
+
+
+                <div class="testimonials-grid">
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “Todo excelente, los instructores y la
+                            atención por WhatsApp impecable.”
+                        </p>
+
+                        <strong>
+                            Cristian Corman
+                        </strong>
+
+                        <small>
+                            Licencia Moto
+                        </small>
+
+                    </article>
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “Muy buen profesor. Las mejores indicaciones
+                            y buenos tratos. Pude rendir bien con pocas
+                            clases.”
+                        </p>
+
+                        <strong>
+                            Georgina Ingaglio
+                        </strong>
+
+                        <small>
+                            Clase Perfeccionamiento
+                        </small>
+
+                    </article>
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “Muchas gracias a los chicos de RosDrive por
+                            acompañarme en esta nueva experiencia.”
+                        </p>
+
+                        <strong>
+                            Candela Roldan
+                        </strong>
+
+                        <small>
+                            Principiante Auto y Moto
+                        </small>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             UBICACIÓN
+        ========================== -->
+
+        <section id="ubicacion" class="location-section">
+
+            <div class="container location-content">
+
+                <div>
+
+                    <p class="section-label">
+                        ENCONTRANOS
+                    </p>
+
+                    <h2>
+                        Estamos en Rosario
+                    </h2>
+
+                    <p>
+                        Nuestra escuela se encuentra ubicada en una
+                        zona estratégica para que puedas comenzar
+                        tus clases cómodamente.
+                    </p>
+
+                    <div class="location-info">
+
+                        <strong>
+                            📍 Ubicación
+                        </strong>
+
+                        <p>
+                            Córdoba 844/50, Local 6<br>
+                            Rosario, Santa Fe, Argentina
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Cordoba+844+Rosario+Santa+Fe"
+                        target="_blank"
+                        class="button button-primary"
+                    >
+                        Ver ubicación
+                    </a>
+
+                </div>
+
+
+                <div class="location-box">
+
+                    <span>📍</span>
+
+                    <h3>
+                        RosDrive
+                    </h3>
+
+                    <p>
+                        Escuela de Conductores
+                    </p>
+
+                    <p>
+                        Córdoba 844/50 · Local 6
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    ROS<span>DRIVE</span>
+                </div>
+
+                <p>
+                    Escuela de Conductores
+                </p>
+
+            </div>
+
+            <div>
+
+                <p>
+                    © 2026 RosDrive Escuela de Conductores
+                </p>
+
+                <p>
+                    Rosario, Santa Fe, Argentina
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP FLOTANTE
+    ========================== -->
+
+    <a
+        href="https://wa.me/5493410000000"
+        target="_blank"
+        class="whatsapp-float"
+        aria-label="Contactar por WhatsApp"
+    >
+        💬
+    </a>
+
 
 </body>
+
 </html>
