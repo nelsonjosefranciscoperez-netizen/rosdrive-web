@@ -1,20 +1,29 @@
+```css
 /* =========================================================
-   ROSDRIVE - ESTILOS PRINCIPALES
+   ROSDRIVE — ESTILOS PRINCIPALES
    ========================================================= */
 
 :root {
-    --black: #0b0b0b;
-    --dark: #111111;
-    --dark-2: #181818;
+    --black: #050505;
+    --black-2: #0b0b0b;
+    --black-3: #111111;
+    --gold: #f4c400;
+    --gold-light: #ffd84a;
     --white: #ffffff;
-    --gray: #b7b7b7;
-    --light: #f5f5f5;
-    --accent: #d8a83e;
-    --accent-light: #f0c96b;
-    --border: rgba(255,255,255,0.10);
+    --gray: #b8b8b8;
+    --gray-dark: #777777;
+    --border: rgba(244, 196, 0, 0.18);
 
-    --max-width: 1180px;
+    --container: 1180px;
+    --radius: 22px;
+
+    --shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+
+    --transition:
+        0.3s ease;
 }
+
 
 /* =========================================================
    RESET
@@ -31,10 +40,23 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: var(--black);
     color: var(--white);
+
     line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
 
 a {
@@ -42,17 +64,21 @@ a {
     text-decoration: none;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+button {
+    font: inherit;
 }
 
-button {
-    font-family: inherit;
-}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .container {
-    width: min(92%, var(--max-width));
+    width: min(
+        calc(100% - 40px),
+        var(--container)
+    );
+
     margin: 0 auto;
 }
 
@@ -65,89 +91,116 @@ button {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
+
     z-index: 1000;
 
-    background: rgba(8, 8, 8, 0.88);
-    backdrop-filter: blur(12px);
+    background:
+        rgba(5, 5, 5, 0.88);
 
-    border-bottom: 1px solid var(--border);
+    backdrop-filter:
+        blur(16px);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
 }
 
 .header-content {
-    min-height: 78px;
+    min-height: 82px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+
+    gap: 35px;
 }
 
+.logo-image {
+    display: flex;
+    align-items: center;
 
-/* LOGO */
-
-.logo {
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: white;
+    flex-shrink: 0;
 }
 
-.logo span {
-    color: var(--accent);
+.logo-image img {
+    width: 175px;
+    height: auto;
+
+    object-fit: contain;
 }
-
-
-/* NAV */
 
 .nav {
     display: flex;
     align-items: center;
-    gap: 25px;
+
+    gap: 28px;
 }
 
 .nav a {
+    position: relative;
+
+    color: #eeeeee;
+
     font-size: 14px;
-    color: #ddd;
+    font-weight: 600;
 
     transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+        color var(--transition);
+}
+
+.nav a:not(.nav-whatsapp)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transition:
+        width var(--transition);
 }
 
 .nav a:hover {
-    color: var(--accent);
-    transform: translateY(-1px);
+    color: var(--gold);
+}
+
+.nav a:hover::after {
+    width: 100%;
 }
 
 .nav-whatsapp {
-    padding: 10px 18px;
+    padding:
+        10px 18px;
 
-    border: 1px solid var(--accent);
+    border:
+        1px solid var(--gold);
+
     border-radius: 999px;
 
-    color: var(--accent) !important;
+    color: var(--gold) !important;
 }
 
 .nav-whatsapp:hover {
-    background: var(--accent);
+    background: var(--gold);
     color: #000 !important;
 }
-
-
-/* MOBILE BUTTON */
 
 .menu-button {
     display: none;
 
-    border: 1px solid var(--border);
+    border: 0;
     background: transparent;
-    color: white;
 
-    padding: 8px 11px;
-    border-radius: 8px;
+    color: var(--white);
 
-    font-size: 20px;
+    font-size: 28px;
+
     cursor: pointer;
 }
 
@@ -157,9 +210,9 @@ button {
    ========================================================= */
 
 .hero {
-    min-height: 760px;
-
     position: relative;
+
+    min-height: 850px;
 
     display: flex;
     align-items: center;
@@ -168,15 +221,16 @@ button {
 
     background:
         radial-gradient(
-            circle at 75% 45%,
-            rgba(216,168,62,0.18),
+            circle at 75% 40%,
+            rgba(244, 196, 0, 0.16),
             transparent 35%
         ),
+
         linear-gradient(
-            135deg,
-            #050505 0%,
-            #101010 55%,
-            #17130c 100%
+            115deg,
+            #020202 0%,
+            #080808 45%,
+            #111111 100%
         );
 }
 
@@ -185,80 +239,131 @@ button {
 
     position: absolute;
 
-    width: 600px;
-    height: 600px;
-
-    right: -180px;
-    top: 100px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(216,168,62,0.20);
-}
-
-.hero-overlay {
-    position: absolute;
     inset: 0;
 
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,0.95) 0%,
-            rgba(0,0,0,0.60) 55%,
-            rgba(0,0,0,0.20) 100%
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.65) 48%,
+            rgba(0, 0, 0, 0.05) 100%
+        );
+
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(244, 196, 0, 0.08),
+            transparent 30%
+        );
+}
+
+.hero-monument {
+    position: absolute;
+
+    right: -80px;
+    bottom: -80px;
+
+    width: min(70vw, 1000px);
+
+    opacity: 0.25;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.hero-monument img {
+    width: 100%;
+
+    filter:
+        drop-shadow(
+            0 20px 40px rgba(0, 0, 0, 0.8)
         );
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+
+    z-index: 5;
 
     padding-top: 80px;
+
+    max-width: 760px;
 }
 
 .hero-small {
-    color: var(--accent);
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    color: var(--gold);
 
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
 
     letter-spacing: 3px;
+}
 
-    margin-bottom: 20px;
+.hero-small::before {
+    content: "";
+
+    width: 35px;
+    height: 2px;
+
+    background: var(--gold);
 }
 
 .hero h1 {
-    max-width: 750px;
+    max-width: 800px;
 
-    font-size: clamp(48px, 7vw, 82px);
+    font-size:
+        clamp(52px, 7vw, 92px);
 
     line-height: 0.98;
 
-    letter-spacing: -3px;
+    letter-spacing: -4px;
 
-    margin-bottom: 28px;
+    font-weight: 900;
 }
 
 .hero h1 span {
     display: block;
-    color: var(--accent);
+
+    color: var(--gold);
 }
 
 .hero-text {
-    max-width: 620px;
+    max-width: 610px;
+
+    margin-top: 30px;
 
     color: #c5c5c5;
 
     font-size: 18px;
 
-    margin-bottom: 35px;
+    line-height: 1.8;
 }
 
 .hero-buttons {
     display: flex;
-    align-items: center;
+
     flex-wrap: wrap;
-    gap: 15px;
+
+    gap: 14px;
+
+    margin-top: 38px;
 }
 
 
@@ -272,95 +377,123 @@ button {
     align-items: center;
     justify-content: center;
 
-    min-height: 50px;
+    min-height: 52px;
 
-    padding: 0 24px;
+    padding:
+        0 25px;
 
-    border-radius: 8px;
+    border-radius: 999px;
 
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
 }
 
 .button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .button-primary {
-    background: var(--accent);
-    color: #080808;
+    background: var(--gold);
+
+    color: #050505;
+
+    box-shadow:
+        0 12px 35px rgba(244, 196, 0, 0.18);
 }
 
 .button-primary:hover {
-    background: var(--accent-light);
+    background: var(--gold-light);
+
+    box-shadow:
+        0 16px 45px rgba(244, 196, 0, 0.28);
 }
 
 .button-secondary {
-    border: 1px solid rgba(255,255,255,0.25);
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
     color: white;
 }
 
 .button-secondary:hover {
-    background: white;
-    color: black;
+    border-color: var(--gold);
+
+    color: var(--gold);
 }
 
 
 /* =========================================================
-   SECTIONS
+   SECTION GENERAL
    ========================================================= */
 
 section {
-    padding: 110px 0;
+    position: relative;
+}
+
+.why-section,
+.services-section,
+.vehicles-section,
+.steps-section,
+.testimonials-section,
+.location-section {
+    padding:
+        120px 0;
 }
 
 .section-heading {
     max-width: 720px;
-    margin: 0 auto 60px;
+
+    margin:
+        0 auto 65px;
 
     text-align: center;
 }
 
 .section-label {
-    color: var(--accent);
+    margin-bottom: 12px;
+
+    color: var(--gold);
 
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 900;
 
     letter-spacing: 3px;
-
-    margin-bottom: 12px;
 }
 
 .section-heading h2 {
-    font-size: clamp(32px, 5vw, 50px);
+    font-size:
+        clamp(36px, 5vw, 58px);
 
     line-height: 1.05;
 
-    margin-bottom: 18px;
+    letter-spacing: -2px;
 }
 
-.section-heading p:last-child {
+.section-heading > p:last-child {
+    margin-top: 18px;
+
     color: var(--gray);
+
+    font-size: 16px;
 }
 
 
 /* =========================================================
-   WHY SECTION
+   WHY
    ========================================================= */
 
 .why-section {
-    background: var(--light);
-    color: #111;
-}
-
-.why-section .section-heading p:last-child {
-    color: #666;
+    background:
+        #080808;
 }
 
 .benefits-grid {
@@ -369,55 +502,73 @@ section {
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 20px;
+    gap: 18px;
 }
 
 .benefit-card {
-    padding: 35px 28px;
+    position: relative;
 
-    background: white;
+    padding: 34px 28px;
 
-    border-radius: 15px;
+    min-height: 255px;
 
-    border: 1px solid #e7e7e7;
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #090909
+        );
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 .benefit-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(244, 196, 0, 0.35);
 
     box-shadow:
-        0 20px 40px rgba(0,0,0,0.08);
+        var(--shadow);
 }
 
 .benefit-icon {
-    width: 55px;
-    height: 55px;
+    width: 58px;
+    height: 58px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 
-    background: #f6efe0;
+    margin-bottom: 24px;
 
-    border-radius: 12px;
+    border-radius: 16px;
 
-    font-size: 25px;
+    background:
+        rgba(244, 196, 0, 0.09);
 
-    margin-bottom: 25px;
+    border:
+        1px solid rgba(244, 196, 0, 0.15);
+
+    font-size: 27px;
 }
 
 .benefit-card h3 {
-    font-size: 19px;
-
     margin-bottom: 12px;
+
+    font-size: 19px;
 }
 
 .benefit-card p {
-    color: #666;
+    color: var(--gray);
 
     font-size: 14px;
 }
@@ -428,10 +579,251 @@ section {
    ========================================================= */
 
 .services-section {
-    background: var(--black);
+    background:
+        #050505;
 }
 
 .services-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.service-card {
+    position: relative;
+
+    min-height: 280px;
+
+    padding: 34px 30px;
+
+    border-radius:
+        var(--radius);
+
+    background:
+        #0d0d0d;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition);
+}
+
+.service-card::after {
+    content: "";
+
+    position: absolute;
+
+    right: -50px;
+    bottom: -70px;
+
+    width: 160px;
+    height: 160px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(244, 196, 0, 0.08);
+
+    filter:
+        blur(10px);
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(244, 196, 0, 0.35);
+}
+
+.service-number {
+    color: var(--gold);
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 50px;
+}
+
+.service-card h3 {
+    margin-bottom: 13px;
+
+    font-size: 20px;
+}
+
+.service-card p {
+    color: var(--gray);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   VEHICLES
+   ========================================================= */
+
+.vehicles-section {
+    background:
+        linear-gradient(
+            180deg,
+            #090909 0%,
+            #030303 100%
+        );
+
+    overflow: hidden;
+}
+
+.vehicle-main-card {
+    display: grid;
+
+    grid-template-columns:
+        1.35fr 0.65fr;
+
+    align-items: center;
+
+    min-height: 470px;
+
+    margin-bottom: 90px;
+
+    border:
+        1px solid rgba(244, 196, 0, 0.15);
+
+    border-radius:
+        30px;
+
+    background:
+        radial-gradient(
+            circle at 30% 50%,
+            rgba(244, 196, 0, 0.09),
+            transparent 45%
+        ),
+
+        #0b0b0b;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.5);
+}
+
+.vehicle-image {
+    position: relative;
+
+    min-height: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicle-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(244, 196, 0, 0.05);
+
+    filter:
+        blur(10px);
+}
+
+.vehicle-image img {
+    position: relative;
+
+    width: 90%;
+    max-width: 720px;
+
+    max-height: 410px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 30px 30px rgba(0, 0, 0, 0.7)
+        );
+
+    transition:
+        transform 0.5s ease;
+}
+
+.vehicle-main-card:hover .vehicle-image img {
+    transform:
+        scale(1.04)
+        translateY(-6px);
+}
+
+.vehicle-info {
+    padding:
+        55px 55px 55px 15px;
+}
+
+.vehicle-category {
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.vehicle-info h3 {
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1;
+
+    margin-bottom: 10px;
+}
+
+.vehicle-model {
+    color: var(--gold-light);
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+.vehicle-info > p:not(.vehicle-category):not(.vehicle-model) {
+    color: var(--gray);
+
+    margin-bottom: 30px;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   MOTORCYCLES
+   ========================================================= */
+
+.motorcycle-heading {
+    margin-bottom: 35px;
+}
+
+.motorcycle-heading h3 {
+    font-size:
+        clamp(30px, 4vw, 45px);
+
+    letter-spacing: -1px;
+}
+
+.motorcycles-grid {
     display: grid;
 
     grid-template-columns:
@@ -440,83 +832,153 @@ section {
     gap: 20px;
 }
 
-.service-card {
+.motorcycle-card {
     position: relative;
 
-    min-height: 230px;
+    overflow: hidden;
 
-    padding: 38px;
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius:
+        26px;
 
     background:
         linear-gradient(
             145deg,
-            #161616,
-            #0e0e0e
+            #121212,
+            #080808
         );
 
-    border: 1px solid var(--border);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
 
-    border-radius: 15px;
+.motorcycle-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(244, 196, 0, 0.35);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.motorcycle-image {
+    position: relative;
+
+    height: 310px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
 
     overflow: hidden;
 
+    background:
+        radial-gradient(
+            circle,
+            rgba(244, 196, 0, 0.08),
+            transparent 65%
+        );
+}
+
+.motorcycle-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 25px 20px rgba(0, 0, 0, 0.75)
+        );
+
     transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
+        transform 0.5s ease;
 }
 
-.service-card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 150px;
-    height: 150px;
-
-    right: -70px;
-    bottom: -70px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(216,168,62,0.15);
+.motorcycle-card:hover .motorcycle-image img {
+    transform:
+        scale(1.06)
+        translateY(-5px);
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-
-    border-color: rgba(216,168,62,0.5);
+.motorcycle-content {
+    padding:
+        28px 30px 32px;
 }
 
-.service-number {
-    color: var(--accent);
+.category-badge {
+    display: inline-flex;
 
-    font-size: 13px;
-    font-weight: 800;
+    padding:
+        5px 11px;
 
-    letter-spacing: 2px;
+    margin-bottom: 13px;
 
-    margin-bottom: 35px;
+    border-radius: 999px;
+
+    background:
+        rgba(244, 196, 0, 0.1);
+
+    border:
+        1px solid rgba(244, 196, 0, 0.25);
+
+    color: var(--gold);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
 }
 
-.service-card h3 {
-    font-size: 24px;
+.motorcycle-content h3 {
+    font-size: 25px;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
-.service-card p {
+.motorcycle-content p {
     color: var(--gray);
 
-    max-width: 500px;
+    font-size: 14px;
+
+    min-height: 48px;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: var(--gold);
+
+    font-size: 13px;
+    font-weight: 900;
+
+    transition:
+        transform var(--transition);
+}
+
+.text-link:hover {
+    transform:
+        translateX(5px);
 }
 
 
 /* =========================================================
-   HOW IT WORKS
+   STEPS
    ========================================================= */
 
 .steps-section {
-    background: #111;
+    background:
+        #080808;
 }
 
 .steps-grid {
@@ -529,39 +991,32 @@ section {
 }
 
 .step {
-    padding: 35px;
+    position: relative;
 
-    border: 1px solid var(--border);
+    padding:
+        35px;
 
-    border-radius: 15px;
-
-    background: #151515;
+    border-top:
+        1px solid rgba(244, 196, 0, 0.35);
 }
 
-.step > span {
-    display: inline-flex;
+.step span {
+    display: block;
 
-    width: 48px;
-    height: 48px;
+    margin-bottom: 35px;
 
-    align-items: center;
-    justify-content: center;
+    color: var(--gold);
 
-    border-radius: 50%;
-
-    background: var(--accent);
-
-    color: #111;
-
+    font-size: 14px;
     font-weight: 900;
 
-    margin-bottom: 25px;
+    letter-spacing: 2px;
 }
 
 .step h3 {
-    font-size: 20px;
+    margin-bottom: 13px;
 
-    margin-bottom: 12px;
+    font-size: 22px;
 }
 
 .step p {
@@ -576,13 +1031,8 @@ section {
    ========================================================= */
 
 .testimonials-section {
-    background: var(--light);
-
-    color: #111;
-}
-
-.testimonials-section .section-heading p:last-child {
-    color: #666;
+    background:
+        #050505;
 }
 
 .testimonials-grid {
@@ -595,39 +1045,47 @@ section {
 }
 
 .testimonial {
-    background: white;
+    padding:
+        34px;
 
-    padding: 35px;
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
 
-    border-radius: 15px;
+    border-radius:
+        var(--radius);
 
-    border: 1px solid #e7e7e7;
+    background:
+        #0d0d0d;
 }
 
 .stars {
-    color: #d49f2d;
+    color: var(--gold);
 
     letter-spacing: 3px;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .testimonial p {
-    color: #555;
+    color: #dddddd;
 
     font-size: 15px;
 
-    margin-bottom: 25px;
+    line-height: 1.8;
+
+    margin-bottom: 28px;
 }
 
 .testimonial strong {
     display: block;
 
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .testimonial small {
-    color: #888;
+    color: var(--gray-dark);
+
+    font-size: 12px;
 }
 
 
@@ -636,89 +1094,110 @@ section {
    ========================================================= */
 
 .location-section {
-    background: var(--black);
+    background:
+        linear-gradient(
+            135deg,
+            #101010,
+            #050505
+        );
 }
 
 .location-content {
     display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        1fr 0.8fr;
 
-    gap: 70px;
+    gap: 80px;
 
     align-items: center;
 }
 
 .location-content h2 {
-    font-size: clamp(35px, 5vw, 55px);
+    font-size:
+        clamp(38px, 5vw, 60px);
 
-    line-height: 1.05;
+    line-height: 1;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
-.location-content > div:first-child > p {
+.location-content > div:first-child > p:not(.section-label) {
     color: var(--gray);
 
-    max-width: 560px;
+    max-width: 550px;
 
     margin-bottom: 30px;
 }
 
 .location-info {
     margin-bottom: 30px;
+
+    padding-left: 20px;
+
+    border-left:
+        2px solid var(--gold);
 }
 
 .location-info strong {
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .location-info p {
     color: var(--gray);
+
+    font-size: 14px;
 }
 
 .location-box {
-    min-height: 380px;
+    min-height: 340px;
 
     display: flex;
-
-    flex-direction: column;
 
     align-items: center;
     justify-content: center;
 
+    flex-direction: column;
+
     text-align: center;
 
-    border-radius: 20px;
+    border:
+        1px solid rgba(244, 196, 0, 0.2);
+
+    border-radius:
+        30px;
 
     background:
         radial-gradient(
             circle,
-            rgba(216,168,62,0.14),
-            transparent 55%
-        ),
-        #131313;
+            rgba(244, 196, 0, 0.1),
+            transparent 65%
+        );
 
-    border: 1px solid var(--border);
+    box-shadow:
+        var(--shadow);
 }
 
-.location-box > span {
-    font-size: 55px;
+.location-box img {
+    width: 150px;
 
-    margin-bottom: 15px;
+    max-height: 150px;
+
+    object-fit: contain;
+
+    margin-bottom: 18px;
 }
 
 .location-box h3 {
-    font-size: 30px;
-
-    margin-bottom: 8px;
+    font-size: 25px;
 }
 
 .location-box p {
     color: var(--gray);
+
+    font-size: 13px;
 }
 
 
@@ -727,11 +1206,14 @@ section {
    ========================================================= */
 
 .footer {
-    padding: 45px 0;
+    padding:
+        45px 0;
 
-    background: #050505;
+    background:
+        #020202;
 
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-content {
@@ -744,10 +1226,16 @@ section {
     gap: 30px;
 }
 
-.footer p {
-    color: #777;
+.footer-logo {
+    width: 145px;
 
-    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.footer p {
+    color: var(--gray-dark);
+
+    font-size: 12px;
 }
 
 
@@ -761,89 +1249,187 @@ section {
     right: 25px;
     bottom: 25px;
 
-    width: 58px;
-    height: 58px;
+    z-index: 900;
 
-    display: flex;
+    width: 62px;
+    height: 62px;
 
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 
     border-radius: 50%;
 
-    background: #25D366;
+    background:
+        #25D366;
 
     color: white;
 
-    font-size: 25px;
+    font-size: 27px;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.3);
-
-    z-index: 999;
+        0 15px 40px rgba(0, 0, 0, 0.45);
 
     transition:
-        transform 0.25s ease;
+        transform var(--transition),
+        box-shadow var(--transition);
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.08);
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.6);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE MENU
    ========================================================= */
 
 @media (max-width: 900px) {
-
-    .nav {
-        display: none;
-    }
 
     .menu-button {
         display: block;
     }
 
-    .benefits-grid {
+    .nav {
+        position: absolute;
+
+        top: 82px;
+        left: 20px;
+        right: 20px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 15px;
+
+        border:
+            1px solid rgba(255, 255, 255, 0.08);
+
+        border-radius:
+            18px;
+
+        background:
+            rgba(10, 10, 10, 0.98);
+
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav.nav-open {
+        display: flex;
+    }
+
+    .nav a {
+        padding: 14px;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav a:last-child {
+        border-bottom: 0;
+    }
+
+    .nav a::after {
+        display: none;
+    }
+
+    .nav-whatsapp {
+        margin-top: 8px;
+
+        text-align: center;
+    }
+
+    .benefits-grid,
+    .services-grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-    .testimonials-grid {
-        grid-template-columns:
-            1fr;
+    .vehicle-main-card {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-info {
+        padding:
+            0 40px 45px;
+    }
+
+    .vehicle-image {
+        min-height: 380px;
     }
 
     .location-content {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
+
+        gap: 50px;
     }
 
 }
 
 
-@media (max-width: 650px) {
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-    section {
-        padding: 80px 0;
+@media (max-width: 700px) {
+
+    .container {
+        width:
+            min(
+                calc(100% - 30px),
+                var(--container)
+            );
+    }
+
+    .header-content {
+        min-height: 72px;
+    }
+
+    .logo-image img {
+        width: 145px;
     }
 
     .hero {
-        min-height: 680px;
+        min-height: 760px;
+    }
+
+    .hero-content {
+        padding-top: 100px;
     }
 
     .hero h1 {
-        font-size: 48px;
         letter-spacing: -2px;
+
+        font-size:
+            clamp(46px, 13vw, 70px);
     }
 
     .hero-text {
         font-size: 16px;
     }
 
+    .hero-monument {
+        right: -180px;
+        bottom: -30px;
+
+        width: 850px;
+
+        opacity: 0.16;
+    }
+
     .hero-buttons {
         flex-direction: column;
+
         align-items: stretch;
     }
 
@@ -851,19 +1437,77 @@ section {
         width: 100%;
     }
 
-    .benefits-grid {
-        grid-template-columns:
-            1fr;
+    .why-section,
+    .services-section,
+    .vehicles-section,
+    .steps-section,
+    .testimonials-section,
+    .location-section {
+        padding:
+            85px 0;
     }
 
-    .services-grid {
-        grid-template-columns:
-            1fr;
+    .section-heading {
+        margin-bottom: 45px;
     }
 
-    .steps-grid {
-        grid-template-columns:
-            1fr;
+    .benefits-grid,
+    .services-grid,
+    .motorcycles-grid,
+    .steps-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-card,
+    .service-card {
+        min-height: auto;
+    }
+
+    .service-number {
+        margin-bottom: 30px;
+    }
+
+    .vehicle-main-card {
+        margin-bottom: 65px;
+
+        border-radius: 22px;
+    }
+
+    .vehicle-image {
+        min-height: 290px;
+    }
+
+    .vehicle-image img {
+        width: 95%;
+    }
+
+    .vehicle-info {
+        padding:
+            0 25px 35px;
+    }
+
+    .motorcycle-image {
+        height: 260px;
+    }
+
+    .motorcycle-content {
+        padding:
+            24px;
+    }
+
+    .step {
+        padding:
+            25px 0;
+    }
+
+    .testimonials-grid {
+        gap: 15px;
+    }
+
+    .testimonial {
+        padding:
+            28px;
     }
 
     .footer-content {
@@ -872,9 +1516,54 @@ section {
         align-items: flex-start;
     }
 
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .logo-image img {
+        width: 130px;
+    }
+
+    .hero {
+        min-height: 700px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-small {
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+    }
+
+    .vehicle-info h3 {
+        font-size: 32px;
+    }
+
+    .motorcycle-image {
+        height: 230px;
+    }
+
     .whatsapp-float {
         right: 18px;
         bottom: 18px;
+
+        width: 56px;
+        height: 56px;
+
+        font-size: 24px;
     }
 
 }
+```
