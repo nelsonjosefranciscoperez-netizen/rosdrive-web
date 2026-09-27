@@ -1,25 +1,33 @@
-/* =========================================
+/* =========================================================
    ROSDRIVE
-   ESTILO GENERAL
-========================================= */
+   ESTILO PRINCIPAL
+========================================================= */
 
 :root {
-
-    --yellow: #ffd21c;
-    --yellow-dark: #e9ae00;
-
     --black: #080808;
-    --black-2: #101010;
-    --black-3: #171717;
+    --black-soft: #101010;
+    --black-card: #151515;
+
+    --gold: #f5c400;
+    --gold-light: #ffd83d;
+    --gold-dark: #c99d00;
 
     --white: #ffffff;
-    --light: #f5f5f5;
-    --gray: #777777;
+    --gray: #a8a8a8;
+    --gray-light: #dedede;
 
-    --max-width: 1250px;
+    --max-width: 1180px;
 
+    --radius: 16px;
+
+    --shadow:
+        0 15px 45px rgba(0,0,0,.25);
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -27,1493 +35,1068 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
-    font-family: "Montserrat", sans-serif;
-
+    font-family: "Montserrat", Arial, sans-serif;
     background: var(--black);
-
     color: var(--white);
-
+    line-height: 1.6;
     overflow-x: hidden;
-
 }
-
 
 img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
 }
-
 
 a {
     color: inherit;
     text-decoration: none;
 }
 
+button {
+    font-family: inherit;
+}
 
-.section-container {
-
-    width: min(1250px, 92%);
-
-    margin: auto;
-
+.container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
 }
 
 
-/* =========================================
-   BOTONES
-========================================= */
+/* =========================================================
+   HEADER
+========================================================= */
 
-.btn {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    padding: 15px 24px;
-
-    border-radius: 40px;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    letter-spacing: .2px;
-
-    transition: .25s ease;
-
-}
-
-
-.btn-yellow {
-
-    background: var(--yellow);
-
-    color: #080808;
-
-}
-
-
-.btn-yellow:hover {
-
-    transform: translateY(-3px);
-
-    background: #ffe052;
-
-    box-shadow: 0 10px 30px rgba(255,210,28,.25);
-
-}
-
-
-.btn-outline {
-
-    border: 1px solid rgba(255,255,255,.45);
-
-    color: white;
-
-}
-
-
-.btn-outline:hover {
-
-    border-color: var(--yellow);
-
-    color: var(--yellow);
-
-}
-
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-
-    position: fixed;
-
-    width: 100%;
-
+.header {
+    position: sticky;
     top: 0;
-
-    left: 0;
-
     z-index: 1000;
 
-    background: rgba(5,5,5,.92);
+    background: rgba(7,7,7,.94);
+    backdrop-filter: blur(15px);
 
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid rgba(255,255,255,.08);
-
-    transition: .3s ease;
-
+    border-bottom: 1px solid rgba(245,196,0,.18);
 }
 
-
-.navbar.scrolled {
-
-    background: rgba(5,5,5,.98);
-
-}
-
-
-.nav-container {
-
-    width: min(1250px, 92%);
-
-    min-height: 72px;
-
-    margin: auto;
+.header-inner {
+    height: 82px;
 
     display: flex;
-
     align-items: center;
+    justify-content: space-between;
 
-    gap: 35px;
+    gap: 30px;
+}
 
+.logo {
+    width: 185px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
 }
 
 
-.brand img {
-
-    width: 155px;
-
-}
-
-
-.nav-menu {
-
+.nav {
     display: flex;
-
     align-items: center;
-
     gap: 28px;
-
-    margin-left: auto;
-
 }
 
-
-.nav-menu a {
-
+.nav a {
     position: relative;
 
-    font-size: 12px;
-
+    color: #ddd;
+    font-size: 13px;
     font-weight: 600;
 
-    color: #ddd;
-
-    padding: 27px 0;
-
-    transition: .2s ease;
-
+    transition: .25s ease;
 }
 
-
-.nav-menu a:hover,
-.nav-menu a.active {
-
-    color: white;
-
-}
-
-
-.nav-menu a.active::after {
-
+.nav a::after {
     content: "";
 
     position: absolute;
 
-    bottom: 16px;
-
     left: 0;
+    bottom: -9px;
 
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: .25s ease;
+}
+
+.nav a:hover {
+    color: var(--gold);
+}
+
+.nav a:hover::after {
     width: 100%;
-
-    height: 3px;
-
-    background: var(--yellow);
-
 }
 
 
-.nav-whatsapp {
+.header-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-    background: var(--yellow);
+    background: var(--gold);
+    color: #050505;
 
-    color: #080808;
+    padding: 11px 17px;
 
-    padding: 12px 20px;
-
-    border-radius: 30px;
+    border-radius: 8px;
 
     font-size: 12px;
-
     font-weight: 800;
 
-    white-space: nowrap;
-
+    transition: .25s ease;
 }
 
-
-.nav-whatsapp:hover {
-
+.header-whatsapp:hover {
+    background: var(--gold-light);
     transform: translateY(-2px);
-
 }
 
 
-.menu-button {
-
+.menu-btn {
     display: none;
 
     border: 0;
-
-    background: none;
-
+    background: transparent;
     color: white;
 
-    font-size: 27px;
+    font-size: 28px;
 
     cursor: pointer;
-
 }
 
 
-/* =========================================
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .hero {
-
     position: relative;
 
-    min-height: 700px;
+    min-height: 690px;
 
     display: flex;
-
     align-items: center;
-
-    overflow: hidden;
-
-    background: #050505;
-
-}
-
-
-.hero-background {
-
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-        url("img/rosdrive_monumento_transparente.png");
-
-    background-repeat: no-repeat;
-
-    background-position: center;
-
-    background-size: cover;
-
-    opacity: .34;
-
-    filter: saturate(.75);
-
-}
-
-
-.hero-overlay {
-
-    position: absolute;
-
-    inset: 0;
 
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,.96) 0%,
-            rgba(0,0,0,.82) 35%,
-            rgba(0,0,0,.30) 75%,
-            rgba(0,0,0,.72) 100%
-        );
+            rgba(5,5,5,.97) 0%,
+            rgba(5,5,5,.88) 35%,
+            rgba(5,5,5,.40) 72%,
+            rgba(5,5,5,.75) 100%
+        ),
+        url("img/rosdrive_monumento_transparente.png");
 
+    background-repeat: no-repeat;
+    background-position:
+        center,
+        right 5% center;
+
+    background-size:
+        cover,
+        700px auto;
+
+    border-bottom: 1px solid rgba(245,196,0,.12);
 }
-
-
-.hero-container {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: min(1250px, 92%);
-
-    margin: 70px auto 0;
-
-    display: grid;
-
-    grid-template-columns: 46% 54%;
-
-    align-items: center;
-
-}
-
 
 .hero-content {
-
     position: relative;
-
-    z-index: 5;
-
+    z-index: 2;
 }
 
+.hero-text {
+    max-width: 650px;
+}
 
-.eyebrow {
+.eyebrow,
+.section-label {
+    display: inline-block;
 
-    color: var(--yellow);
+    color: var(--gold);
 
-    font-size: 12px;
-
+    font-size: 11px;
     font-weight: 800;
 
-    letter-spacing: 2px;
-
-    margin-bottom: 18px;
-
+    letter-spacing: 3px;
 }
 
+.eyebrow {
+    margin-bottom: 18px;
+}
 
 .hero h1 {
+    font-size: clamp(45px, 6vw, 78px);
+    line-height: .98;
 
-    font-family: "Barlow Condensed", sans-serif;
-
-    font-size: clamp(48px, 5.4vw, 75px);
-
-    line-height: .88;
+    letter-spacing: -3px;
 
     font-weight: 900;
 
-    text-transform: uppercase;
+    margin-bottom: 28px;
+}
 
-    letter-spacing: -1px;
+.hero h1 span {
+    color: var(--gold);
+}
 
+.hero p {
+    max-width: 600px;
+
+    color: #d0d0d0;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
 }
 
 
-.hero h1 strong {
+/* =========================================================
+   BUTTONS
+========================================================= */
 
-    display: block;
+.btn {
+    display: inline-flex;
 
-    color: var(--yellow);
+    align-items: center;
+    justify-content: center;
 
+    min-height: 50px;
+
+    padding: 0 22px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: .3px;
+
+    transition: .25s ease;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #050505;
+}
+
+.btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(245,196,0,.18);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.35);
+    color: white;
+    background: rgba(255,255,255,.03);
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 
-.hero-content > p {
+/* =========================================================
+   BRAND STRIP
+========================================================= */
 
-    max-width: 540px;
+.brand-strip {
+    background: #050505;
 
-    margin: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
 
-    color: #eeeeee;
+.brand-strip .container {
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-strip img {
+    width: 240px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+    padding: 110px 0;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.section-heading.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading h2 {
+    margin-top: 9px;
+    margin-bottom: 13px;
+
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 800;
+}
+
+.section-heading p {
+    max-width: 650px;
+
+    color: var(--gray);
 
     font-size: 15px;
 
-    line-height: 1.6;
-
+    margin: 0 auto;
 }
 
 
-.hero-buttons {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-}
-
-
-.hero-features {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 25px;
-
-    margin-top: 35px;
-
-}
-
-
-.hero-feature {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-}
-
-
-.hero-feature > span {
-
-    font-size: 24px;
-
-    color: var(--yellow);
-
-}
-
-
-.hero-feature strong,
-.hero-feature small {
-
-    display: block;
-
-}
-
-
-.hero-feature strong {
-
-    font-size: 11px;
-
-}
-
-
-.hero-feature small {
-
-    font-size: 10px;
-
-    color: #bbb;
-
-}
-
-
-.hero-car {
-
-    position: relative;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-}
-
-
-.hero-car img {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: 100%;
-
-    max-width: 760px;
-
-    filter:
-        drop-shadow(0 20px 25px rgba(0,0,0,.8));
-
-    transform: translateX(3%);
-
-}
-
-
-.yellow-stripe {
-
-    position: absolute;
-
-    z-index: 1;
-
-    width: 90px;
-
-    height: 450px;
-
-    background: var(--yellow);
-
-    transform: rotate(24deg);
-
-    opacity: .9;
-
-}
-
-
-.stripe-one {
-
-    right: 20%;
-
-}
-
-
-.stripe-two {
-
-    right: 13%;
-
-    opacity: .65;
-
-}
-
-
-/* =========================================
-   TITULOS
-========================================= */
-
-.yellow-line {
-
-    width: 32px;
-
-    height: 5px;
-
-    background: var(--yellow);
-
-    margin-bottom: 15px;
-
-}
-
-
-.section-title h2,
-.vehicle-heading h2,
-.how-title h2,
-.testimonials-heading h2,
-.location-info h2,
-.packs h2 {
-
-    font-family: "Barlow Condensed", sans-serif;
-
-    font-size: clamp(40px, 4vw, 58px);
-
-    line-height: .9;
-
-    font-weight: 900;
-
-    text-transform: uppercase;
-
-}
-
-
-.section-title h2 span,
-.vehicle-heading h2 span,
-.packs h2 span {
-
-    color: var(--yellow);
-
-}
-
-
-/* =========================================
-   SERVICIOS
-========================================= */
-
-.section-light {
-
-    background: #f5f5f5;
-
-    color: #111;
-
-}
-
-
-.services {
-
-    padding: 65px 0;
-
-}
-
-
-.services .section-container {
-
-    display: grid;
-
-    grid-template-columns: 220px 1fr;
-
-    gap: 55px;
-
-    align-items: center;
-
-}
-
-
-.services-title p {
-
-    margin-top: 18px;
-
-    color: #555;
-
-    font-size: 13px;
-
-    line-height: 1.55;
-
-}
-
-
-.service-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 15px;
-
-}
-
-
-.service-card {
-
-    background: white;
-
-    min-height: 190px;
-
-    border-radius: 13px;
-
-    padding: 25px 18px;
-
-    text-align: center;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,.06);
-
-    transition: .25s ease;
-
-}
-
-
-.service-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: 0 15px 30px rgba(0,0,0,.10);
-
-}
-
-
-.service-icon {
-
-    width: 50px;
-
-    height: 50px;
-
-    display: grid;
-
-    place-items: center;
-
-    margin: auto auto 15px;
-
-    background: var(--yellow);
-
-    border-radius: 50%;
-
-    font-size: 22px;
-
-}
-
-
-.service-card h3 {
-
-    font-family: "Barlow Condensed", sans-serif;
-
-    font-size: 20px;
-
-    font-weight: 900;
-
-}
-
-
-.service-card p {
-
-    margin-top: 8px;
-
-    color: #555;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-}
-
-
-/* =========================================
-   VEHICULOS
-========================================= */
-
-.vehicles {
-
-    position: relative;
-
-    padding: 70px 0 55px;
-
-    overflow: hidden;
-
-    background: #080808;
-
-}
-
-
-.vehicle-bg {
-
-    position: absolute;
-
-    inset: 0;
-
+/* =========================================================
+   WHY
+========================================================= */
+
+.why-section {
     background:
         radial-gradient(
-            ellipse at center,
-            rgba(50,50,50,.35),
-            transparent 70%
-        );
-
-    opacity: .9;
-
+            circle at 50% 0%,
+            rgba(245,196,0,.07),
+            transparent 40%
+        ),
+        var(--black);
 }
 
-
-.vehicle-container {
-
-    position: relative;
-
-    z-index: 2;
-
-}
-
-
-.vehicle-heading {
-
-    margin-bottom: 10px;
-
-}
-
-
-.vehicle-heading h2 {
-
-    color: white;
-
-}
-
-
-.vehicle-heading p {
-
-    margin-top: 15px;
-
-    max-width: 330px;
-
-    color: #bbb;
-
-    font-size: 13px;
-
-}
-
-
-.car-showcase {
-
-    display: grid;
-
-    grid-template-columns: 70% 30%;
-
-    align-items: center;
-
-    min-height: 270px;
-
-}
-
-
-.car-image img {
-
-    width: 100%;
-
-    max-width: 720px;
-
-    margin: auto;
-
-}
-
-
-.car-info {
-
-    border-left: 1px solid rgba(255,255,255,.15);
-
-    padding-left: 35px;
-
-}
-
-
-.vehicle-category,
-.moto-category {
-
-    color: var(--yellow);
-
-    font-family: "Barlow Condensed", sans-serif;
-
-    font-size: 25px;
-
-    font-weight: 900;
-
-}
-
-
-.car-info h3 {
-
-    font-size: 25px;
-
-    line-height: 1.05;
-
-    margin: 5px 0 20px;
-
-}
-
-
-.car-info ul {
-
-    list-style: none;
-
-}
-
-
-.car-info li {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin: 12px 0;
-
-    font-size: 12px;
-
-}
-
-
-.car-info li span {
-
-    color: var(--yellow);
-
-}
-
-
-.moto-grid {
-
+.benefits-grid {
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
 
-    border-top: 1px solid rgba(255,255,255,.15);
-
+    gap: 18px;
 }
 
+.benefit-card {
+    padding: 34px 27px;
 
-.moto-card {
+    background: var(--black-card);
 
-    padding: 25px 15px 10px;
+    border: 1px solid rgba(255,255,255,.07);
 
-    border-right: 1px solid rgba(255,255,255,.15);
+    border-radius: var(--radius);
 
+    transition: .3s ease;
 }
 
-
-.moto-card:last-child {
-
-    border-right: 0;
-
+.benefit-card:hover {
+    border-color: rgba(245,196,0,.4);
+    transform: translateY(-6px);
 }
 
-
-.moto-image {
-
-    height: 140px;
+.benefit-icon {
+    width: 50px;
+    height: 50px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    background: rgba(245,196,0,.09);
+
+    font-size: 25px;
 }
 
-
-.moto-image img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-
+.benefit-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-
-.moto-category {
-
-    font-size: 19px;
-
-    margin-top: 10px;
-
-}
-
-
-.moto-card h3 {
-
-    font-family: "Barlow Condensed", sans-serif;
-
-    font-size: 21px;
-
-    line-height: 1;
-
-}
-
-
-/* =========================================
-   COMO FUNCIONA
-========================================= */
-
-.how {
-
-    padding: 60px 0;
-
-}
-
-
-.how-container {
-
-    display: grid;
-
-    grid-template-columns: 190px 1fr;
-
-    align-items: center;
-
-    gap: 35px;
-
-}
-
-
-.steps {
-
-    display: grid;
-
-    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-
-    align-items: center;
-
-}
-
-
-.step {
-
-    position: relative;
-
-    text-align: center;
-
-}
-
-
-.step-number {
-
-    position: absolute;
-
-    top: -8px;
-
-    left: calc(50% + 18px);
-
-    width: 29px;
-
-    height: 29px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 50%;
-
-    background: var(--yellow);
+.benefit-card p {
+    color: var(--gray);
 
     font-size: 13px;
-
-    font-weight: 900;
-
+    line-height: 1.75;
 }
 
 
-.step-icon {
+/* =========================================================
+   SERVICES
+========================================================= */
 
-    width: 48px;
+.services-section {
+    background: #0d0d0d;
+}
 
-    height: 48px;
+.services-grid {
+    display: grid;
 
-    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.service-card {
+    position: relative;
 
     display: grid;
 
-    place-items: center;
+    grid-template-columns: 90px 1fr;
 
-    border-radius: 50%;
+    min-height: 200px;
 
-    background: #111;
+    padding: 35px;
 
-    color: white;
-
-    font-size: 20px;
-
-}
-
-
-.step h3 {
-
-    margin-top: 12px;
-
-    font-size: 12px;
-
-    line-height: 1.25;
-
-}
-
-
-.step p {
-
-    max-width: 150px;
-
-    margin: 8px auto 0;
-
-    color: #666;
-
-    font-size: 10px;
-
-    line-height: 1.5;
-
-}
-
-
-.step-arrow {
-
-    font-size: 42px;
-
-    font-weight: 300;
-
-    color: #222;
-
-}
-
-
-/* =========================================
-   PACKS CTA
-========================================= */
-
-.packs {
-
-    padding: 55px 0;
+    border-radius: var(--radius);
 
     background:
         linear-gradient(
-            110deg,
-            #0b0b0b,
-            #191919
+            135deg,
+            #181818,
+            #0f0f0f
         );
 
+    border: 1px solid rgba(255,255,255,.06);
+
+    overflow: hidden;
+
+    transition: .3s ease;
 }
 
+.service-card::after {
+    content: "";
 
-.packs-inner {
+    position: absolute;
 
-    width: min(1000px, 90%);
+    width: 130px;
+    height: 130px;
 
-    margin: auto;
+    right: -60px;
+    bottom: -60px;
 
-    display: flex;
+    border-radius: 50%;
 
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 40px;
-
+    border: 1px solid rgba(245,196,0,.18);
 }
 
-
-.packs h2 {
-
-    color: white;
-
+.service-card:hover {
+    border-color: rgba(245,196,0,.35);
+    transform: translateY(-4px);
 }
 
+.service-number {
+    color: var(--gold);
 
-.packs p {
+    font-size: 30px;
+    font-weight: 900;
+}
 
-    max-width: 520px;
+.service-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
 
-    margin-top: 15px;
-
-    color: #aaa;
+.service-card p {
+    color: var(--gray);
 
     font-size: 13px;
-
-    line-height: 1.5;
-
+    line-height: 1.75;
 }
 
 
-/* =========================================
-   TESTIMONIOS
-========================================= */
+/* =========================================================
+   FLEET
+========================================================= */
 
-.testimonials {
-
-    padding: 60px 0;
-
-    background: #090909;
-
+.fleet-section {
+    background: var(--black);
 }
 
-
-.testimonials-container {
-
+.fleet-auto {
     display: grid;
 
-    grid-template-columns: 240px 1fr;
-
-    gap: 50px;
+    grid-template-columns: 1.3fr .7fr;
 
     align-items: center;
 
+    gap: 70px;
+
+    padding: 55px;
+
+    margin-bottom: 90px;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 30% 50%,
+            rgba(245,196,0,.08),
+            transparent 40%
+        ),
+        #111;
+
+    border: 1px solid rgba(255,255,255,.07);
+}
+
+.fleet-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 330px;
+}
+
+.fleet-image img {
+    width: 100%;
+    max-width: 650px;
+
+    filter:
+        drop-shadow(0 30px 25px rgba(0,0,0,.6));
+}
+
+.fleet-category {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.fleet-info h3 {
+    font-size: 36px;
+    line-height: 1.1;
+
+    margin-bottom: 5px;
+}
+
+.fleet-year {
+    color: #999;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fleet-info p {
+    color: var(--gray);
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    margin: 25px 0;
+}
+
+.text-button {
+    display: inline-flex;
+
+    color: var(--gold);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition: .2s ease;
+}
+
+.text-button:hover {
+    color: var(--gold-light);
+    transform: translateX(4px);
 }
 
 
-.testimonials-heading h2 {
+/* =========================================================
+   MOTOS
+========================================================= */
 
-    color: white;
-
+.moto-heading {
+    margin-bottom: 30px;
 }
 
+.moto-heading h3 {
+    font-size: 30px;
+    margin-top: 5px;
+}
 
-.testimonials-heading p {
+.motos-grid {
+    display: grid;
 
-    color: #aaa;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.moto-card {
+    background: #121212;
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    transition: .3s ease;
+}
+
+.moto-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(245,196,0,.35);
+}
+
+.moto-image {
+    height: 230px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: #f4f4f4;
+}
+
+.moto-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.moto-info {
+    padding: 25px;
+}
+
+.category-badge {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    margin-bottom: 12px;
+
+    background: rgba(245,196,0,.1);
+
+    border: 1px solid rgba(245,196,0,.25);
+
+    color: var(--gold);
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.moto-info h3 {
+    font-size: 17px;
+
+    margin-bottom: 9px;
+}
+
+.moto-info p {
+    color: var(--gray);
 
     font-size: 12px;
+    line-height: 1.7;
 
-    line-height: 1.5;
+    min-height: 63px;
 
-    margin-top: 18px;
+    margin-bottom: 18px;
+}
 
+.moto-info a {
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 800;
 }
 
 
-.testimonial-grid {
+/* =========================================================
+   PROCESS
+========================================================= */
 
+.process-section {
+    background: #0c0c0c;
+}
+
+.process-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 15px;
-
+    gap: 20px;
 }
 
+.process-card {
+    position: relative;
 
-.testimonial {
+    padding: 40px 35px;
 
-    background: #151515;
+    background: #141414;
 
-    border: 1px solid #252525;
+    border: 1px solid rgba(255,255,255,.06);
 
-    border-radius: 12px;
-
-    padding: 22px;
-
+    border-radius: var(--radius);
 }
 
-
-.stars {
-
-    color: var(--yellow);
-
-    letter-spacing: 2px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.testimonial p {
-
-    min-height: 70px;
-
-    color: #eee;
-
-    font-size: 12px;
-
-    line-height: 1.55;
-
-}
-
-
-.testimonial strong {
-
+.process-card > span {
     display: block;
 
-    margin-top: 15px;
+    color: var(--gold);
 
-    font-size: 12px;
+    font-size: 42px;
+    font-weight: 900;
 
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.process-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.process-card p {
+    color: var(--gray);
+
+    font-size: 13px;
+    line-height: 1.8;
 }
 
 
-.testimonial small {
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
 
-    display: block;
-
-    color: #888;
-
-    margin-top: 3px;
-
-    font-size: 10px;
-
+.testimonials-section {
+    background: var(--black);
 }
 
-
-/* =========================================
-   UBICACION
-========================================= */
-
-.location {
-
-    padding: 65px 0;
-
-}
-
-
-.location-container {
-
+.testimonials-grid {
     display: grid;
 
-    grid-template-columns: 240px 1fr 260px;
+    grid-template-columns: repeat(3, 1fr);
 
-    gap: 25px;
+    gap: 20px;
+}
 
-    align-items: stretch;
+.testimonial {
+    padding: 35px;
 
+    background: #121212;
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    border-radius: var(--radius);
+}
+
+.stars {
+    color: var(--gold);
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.testimonial p {
+    color: #d5d5d5;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    min-height: 100px;
+
+    margin-bottom: 20px;
+}
+
+.testimonial strong {
+    display: block;
+
+    font-size: 13px;
+}
+
+.testimonial span {
+    color: var(--gray);
+
+    font-size: 11px;
 }
 
 
-.location-info p {
+/* =========================================================
+   CTA
+========================================================= */
 
-    margin: 15px 0 20px;
+.cta-section {
+    padding: 70px 0;
 
-    color: #666;
+    background:
+        linear-gradient(
+            110deg,
+            #151515,
+            #0b0b0b
+        );
 
-    font-size: 12px;
-
+    border-top: 1px solid rgba(245,196,0,.12);
+    border-bottom: 1px solid rgba(245,196,0,.12);
 }
 
+.cta-inner {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+
+    line-height: 1.1;
+
+    margin: 8px 0 10px;
+}
+
+.cta-section p {
+    color: var(--gray);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-section {
+    background: #0b0b0b;
+}
+
+.location-grid {
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.location-info h2 {
+    font-size: 44px;
+
+    line-height: 1.1;
+
+    margin: 8px 0 18px;
+}
+
+.location-info > p {
+    max-width: 500px;
+
+    color: var(--gray);
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+}
 
 .address {
-
     display: flex;
 
     flex-direction: column;
 
-    gap: 5px;
+    gap: 6px;
 
     margin-bottom: 25px;
 
-}
+    padding-left: 18px;
 
+    border-left: 2px solid var(--gold);
+}
 
 .address strong {
-
     font-size: 13px;
-
 }
-
 
 .address span {
+    color: var(--gray);
 
-    color: #666;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
+    font-size: 13px;
 }
 
-
-.map {
-
+.location-visual {
     min-height: 300px;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-}
-
-
-.map iframe {
-
-    width: 100%;
-
-    height: 100%;
-
-    min-height: 300px;
-
-    border: 0;
-
-}
-
-
-.contact-card {
-
-    background: #111;
-
-    color: white;
-
-    border-radius: 15px;
-
-    padding: 35px 25px;
 
     display: flex;
-
-    flex-direction: column;
-
+    align-items: center;
     justify-content: center;
+}
 
+.location-visual img {
+    width: 100%;
+    max-width: 650px;
+
+    filter:
+        drop-shadow(0 25px 30px rgba(0,0,0,.7));
 }
 
 
-.contact-card img {
+/* =========================================================
+   FOOTER
+========================================================= */
 
-    width: 170px;
+.footer {
+    background: #050505;
 
-    margin-bottom: 35px;
-
+    border-top: 1px solid rgba(255,255,255,.07);
 }
 
-
-.contact-line {
+.footer-inner {
+    min-height: 150px;
 
     display: flex;
 
     align-items: center;
+    justify-content: space-between;
 
-    gap: 12px;
-
-    margin: 10px 0;
-
-    font-size: 12px;
-
+    gap: 30px;
 }
 
+.footer-brand img {
+    width: 190px;
 
-.contact-line span {
-
-    color: var(--yellow);
-
-    font-size: 22px;
-
+    margin-bottom: 8px;
 }
 
+.footer-brand p {
+    color: var(--gray);
 
-/* =========================================
-   FOOTER
-========================================= */
+    font-size: 11px;
+}
 
-.footer {
+.footer-address {
+    display: flex;
 
-    background: #050505;
+    flex-direction: column;
 
-    padding: 35px 0;
+    text-align: right;
 
-    border-top: 1px solid #222;
+    gap: 4px;
+
+    color: var(--gray);
+
+    font-size: 11px;
+}
+
+.footer-address strong {
+    color: white;
+}
+
+.footer-bottom {
+    padding: 18px 20px;
+
+    border-top: 1px solid rgba(255,255,255,.06);
 
     text-align: center;
-
-}
-
-
-.footer-inner {
-
-    width: min(1000px, 90%);
-
-    margin: auto;
-
-}
-
-
-.footer img {
-
-    width: 180px;
-
-    margin: auto;
-
-}
-
-
-.footer p {
-
-    margin-top: 12px;
-
-    color: #ddd;
-
-    font-size: 12px;
-
-}
-
-
-.footer span {
-
-    display: block;
-
-    margin-top: 5px;
 
     color: #666;
 
     font-size: 10px;
-
 }
 
 
-.footer-copy {
+/* =========================================================
+   WHATSAPP FLOAT
+========================================================= */
 
-    margin-top: 25px;
+.whatsapp-float {
+    position: fixed;
 
-    color: #555;
+    right: 25px;
+    bottom: 25px;
 
-    font-size: 9px;
+    z-index: 999;
 
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #25D366;
+
+    color: white;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+
+    transition: .25s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 1050px) {
 
-    .nav-menu {
-        gap: 15px;
+    .nav {
+        gap: 17px;
     }
 
-    .hero-container {
-        grid-template-columns: 50% 50%;
+    .nav a {
+        font-size: 11px;
     }
 
-    .services .section-container {
-        grid-template-columns: 180px 1fr;
-        gap: 30px;
-    }
-
-    .service-grid {
+    .benefits-grid,
+    .motos-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1522,244 +1105,190 @@ a {
 
 @media (max-width: 850px) {
 
-    .nav-menu {
+    .header-inner {
+        height: 72px;
+    }
 
+    .logo {
+        width: 160px;
+    }
+
+    .header-whatsapp {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav {
         position: absolute;
 
         top: 72px;
-
         left: 0;
+        right: 0;
 
-        width: 100%;
-
-        background: #090909;
+        display: none;
 
         flex-direction: column;
 
         align-items: stretch;
 
-        gap: 0;
+        padding: 20px;
 
-        display: none;
+        background: #080808;
 
-        border-top: 1px solid #222;
-
+        border-bottom: 1px solid rgba(245,196,0,.2);
     }
 
-    .nav-menu.open {
+    .nav.active {
         display: flex;
     }
 
-    .nav-menu a {
-        padding: 16px 25px;
-    }
+    .nav a {
+        padding: 10px 0;
 
-    .nav-menu a.active::after {
-        display: none;
-    }
-
-    .nav-whatsapp {
-        margin-left: auto;
-    }
-
-    .menu-button {
-        display: block;
+        font-size: 13px;
     }
 
     .hero {
-        min-height: 850px;
+        min-height: 650px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5,5,5,.9),
+                rgba(5,5,5,.96)
+            ),
+            url("img/rosdrive_monumento_transparente.png");
+
+        background-size:
+            cover,
+            650px auto;
+
+        background-position:
+            center,
+            center 75%;
     }
 
-    .hero-container {
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .fleet-auto {
         grid-template-columns: 1fr;
-        padding-top: 40px;
+
+        gap: 25px;
+
+        padding: 30px;
     }
 
-    .hero-content {
-        text-align: center;
-    }
-
-    .hero-content > p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-features {
-        justify-content: center;
-    }
-
-    .hero-car {
-        margin-top: 20px;
-    }
-
-    .hero-car img {
-        width: 90%;
-    }
-
-    .services .section-container,
-    .how-container,
-    .testimonials-container {
+    .location-grid {
         grid-template-columns: 1fr;
-    }
 
-    .services-title,
-    .how-title,
-    .testimonials-heading {
-        text-align: center;
-    }
-
-    .yellow-line {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .services-title p {
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .car-showcase {
-        grid-template-columns: 1fr;
-    }
-
-    .car-info {
-        border-left: 0;
-        border-top: 1px solid rgba(255,255,255,.15);
-        padding: 25px 0;
-        text-align: center;
-    }
-
-    .car-info ul {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .moto-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .moto-card:nth-child(2) {
-        border-right: 0;
-    }
-
-    .moto-card:nth-child(-n+2) {
-        border-bottom: 1px solid rgba(255,255,255,.15);
-    }
-
-    .steps {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px 20px;
-    }
-
-    .step-arrow {
-        display: none;
-    }
-
-    .packs-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .location-container {
-        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
 }
 
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
 
-    .nav-container {
-        min-height: 65px;
+    .container {
+        width: min(100% - 28px, 1180px);
     }
 
-    .brand img {
-        width: 130px;
-    }
-
-    .nav-whatsapp {
-        display: none;
+    .section {
+        padding: 75px 0;
     }
 
     .hero {
-        min-height: 790px;
-    }
-
-    .hero-container {
-        margin-top: 50px;
+        min-height: 610px;
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: 47px;
+        letter-spacing: -2px;
     }
 
-    .hero-content > p {
-        font-size: 13px;
+    .hero p {
+        font-size: 14px;
     }
 
     .hero-buttons {
         flex-direction: column;
-        align-items: stretch;
     }
 
-    .hero-features {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
+    .btn {
+        width: 100%;
+    }
+
+    .benefits-grid,
+    .services-grid,
+    .motos-grid,
+    .process-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        grid-template-columns: 65px 1fr;
+        padding: 25px;
+    }
+
+    .service-number {
+        font-size: 24px;
+    }
+
+    .fleet-auto {
+        margin-bottom: 65px;
+        padding: 20px;
+    }
+
+    .fleet-image {
+        min-height: 220px;
+    }
+
+    .fleet-info h3 {
+        font-size: 29px;
+    }
+
+    .moto-image {
+        height: 240px;
+    }
+
+    .cta-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .cta-section h2 {
+        font-size: 29px;
+    }
+
+    .location-info h2 {
+        font-size: 34px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 35px 0;
+    }
+
+    .footer-address {
         text-align: left;
     }
 
-    .hero-feature > span {
-        font-size: 20px;
-    }
+    .whatsapp-float {
+        width: 53px;
+        height: 53px;
 
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .services,
-    .how,
-    .testimonials,
-    .location {
-        padding: 50px 0;
-    }
-
-    .moto-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .moto-card,
-    .moto-card:nth-child(2) {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.15);
-    }
-
-    .moto-card:last-child {
-        border-bottom: 0;
-    }
-
-    .steps {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial p {
-        min-height: auto;
-    }
-
-    .map,
-    .map iframe {
-        min-height: 280px;
+        right: 18px;
+        bottom: 18px;
     }
 
 }
